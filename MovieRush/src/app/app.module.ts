@@ -10,19 +10,21 @@ import { MovieDetailsComponent } from './movies/movie-details/movie-details.comp
 import { MovieItemComponent } from './movies/movie-list/movie-item/movie-item.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
+import { MovieAssetsComponent } from './movies/movie-assets/movie-assets.component';
 
 
 @NgModule({
   declarations: [
+    MovieListComponent,
     AppComponent,
     HeaderConponent,
     RegisterComponent,
     MoviesComponent,
-    MovieListComponent,
     MovieDetailsComponent,
     MovieItemComponent,
     ReviewsComponent,
     ReviewEditComponent,
+    MovieAssetsComponent,
   ],
   imports: [
     BrowserModule,
