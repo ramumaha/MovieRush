@@ -1,0 +1,123 @@
+body {
+  position: relative;
+  background: #040611;
+}
+.searchbar {
+  position: absolute;
+  width: 1112px;
+  height: 53px;
+  left: 223px;
+  top: 32px;
+  background: #ffffff;
+  border-radius: 13px;
+}
+
+.searchmovies {
+  position: absolute;
+  width: 1112px;
+  height: 52px;
+  left: 430px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  color: #808080;
+}
+
+.bookmark {
+  position: absolute;
+  width: 42px;
+  height: 52px;
+  left: 1200px;
+  top: 5px;
+  /* background: url("MovieRush/src/assets/bookmark.png"); */
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  color: #ffffff;
+}
+
+.watchlist {
+  position: absolute;
+  width: 176px;
+  height: 55px;
+  left: 1250px;
+  top: 5px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 44px;
+  display: inline-block;
+  color: #ffffff;
+  background-color: #040611;
+  border: 0;
+  border-radius: 10px;
+}
+
+.signin {
+  position: absolute;
+  width: 154px;
+  height: 55px;
+  left: 1437px;
+  top: 8px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 44px;
+  display: inline-block;
+  color: #ffffff;
+  background-color: #040611;
+  border: 0;
+  border-radius: 10px;
+}
+
+.language {
+  position: absolute;
+  width: 60px;
+  height: 55px;
+  left: 1599px;
+  top: 5px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 44px;
+  display: inline-block;
+  color: #ffffff;
+  background-color: #040611;
+  border: 0px;
+  border-radius: 10px;
+}
+
+.drop-down {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  left: 1670px;
+  top: 28px;
+  /* background: url(MovieRush/src/assets/down-arrow.png); */
+}
+
+.watchlist:hover {
+  background-color: #0f163e;
+  transition-duration: 0.4s;
+}
+
+.signin:hover {
+  background-color: #0f163e;
+  transition-duration: 0.4s;
+}
+
+.language:hover {
+  background-color: #0f163e;
+  transition-duration: 0.4s;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
