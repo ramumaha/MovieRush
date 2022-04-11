@@ -1,22 +1,26 @@
-body {
+html,body {
   position: relative;
   background: #040611;
+  width:100%;
+  height:100%;
+  margin:0;
 }
 .searchbar {
   position: absolute;
-  width: 1112px;
+  width: 800px;
   height: 53px;
-  left: 223px;
+  left: 35px;
   top: 32px;
-  background: #ffffff;
+  background-color: #808080;
   border-radius: 13px;
+
 }
 
 .searchmovies {
   position: absolute;
-  width: 1112px;
+  width: 800px;
   height: 52px;
-  left: 430px;
+  left: 300px;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
@@ -26,15 +30,16 @@ body {
   align-items: center;
   text-align: center;
   color: #808080;
+  
 }
 
 .bookmark {
   position: absolute;
   width: 42px;
   height: 52px;
-  left: 1200px;
+  left: 900px;
   top: 5px;
-  /* background: url("MovieRush/src/assets/bookmark.png"); */
+  background: url(../../assets/bookmark.png);
   transform: matrix(-1, 0, 0, 1, 0, 0);
   color: #ffffff;
 }
@@ -43,7 +48,7 @@ body {
   position: absolute;
   width: 176px;
   height: 55px;
-  left: 1250px;
+  left: 950px;
   top: 5px;
   font-family: "Nunito";
   font-style: normal;
@@ -61,8 +66,8 @@ body {
   position: absolute;
   width: 154px;
   height: 55px;
-  left: 1437px;
-  top: 8px;
+  left: 1137px;
+  top: 5px;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
@@ -79,7 +84,7 @@ body {
   position: absolute;
   width: 60px;
   height: 55px;
-  left: 1599px;
+  left: 1299px;
   top: 5px;
   font-family: "Nunito";
   font-style: normal;
@@ -97,9 +102,9 @@ body {
   position: absolute;
   width: 19px;
   height: 19px;
-  left: 1670px;
+  left: 1370px;
   top: 28px;
-  /* background: url(MovieRush/src/assets/down-arrow.png); */
+  background: url(../../assets/down-arrow.png);
 }
 
 .watchlist:hover {
@@ -117,7 +122,35 @@ body {
   transition-duration: 0.4s;
 }
 
-ul {
-  padding: 0;
-  margin: 0;
+label{
+  margin: 0 40px 0 0;
+  font-size: 26px;
+  line-height: 70px;
+  display: none;
+}
+
+#toggle{
+  display: none;
+
+}
+
+@media only screen and (max-width:500px){
+  label{
+    display: block;
+    cursor:pointer;
+  }
+  .menu{
+
+    text-align: center;
+    width:100%;
+  }
+  .menu a{
+    display:block;
+    border-bottom: 1px solid black;
+    
+  }
+}
+
+body{
+  background-color: #040611;
 }
