@@ -1,37 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MovieRush</title>
-    link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="searchbar">
-      <label for="toggle">&#9776;</label>
-      <input type="checkbox" id="toggle" />
-      <!-- <div class="menu"> -->
-      <div class="searchmovies">Search movies here</div>
-      <a href="https://www.google.com/">
-        <img src="../../assets/bookmark.png" class="bookmark" alt="reel" />
-        <button class="watchlist">Watchlist</button>
-      </a>
-      <a href="https://mail.google.com/mail/u/0/#inbox">
-        <button class="signin">Sign In</button>
-      </a>
-      <button class="language">EN</button>
-      <img
-        src="../../assets/down-arrow.png"
-        class="drop-down"
-        alt="drop-down"
-      />
-    </div>
-    <!-- </div> -->
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="header.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+   <nav>
+    <div class="logo">MovieRush</div>
+    <label for="btn" class="icon">
+        <span class="fa fa-bars"></span>
+    </label>
+       <ul>  
+           <li class="search-icon">
+            <input type="search" placeholder="search">
+            <span class="fa fa-search"></span>
+        <input type="checkbox" id="btn">
+        </li>
+               <li><a href="#">HOME</a></li>
+               <li>
+               <img src="bookmark.png" class="bookmark" alt="reel" />
+               <a href="#">WATCHLIST</a></li>
+               <li><a href="#">SIGN IN</a></li> 
+               <li> 
+                <input type="checkbox" id="btn-1">
+                <a href="#" >EN</a>
+                   <img src="down-arrow.png" class="drop-down" alt="drop-down" />  
+                   
+                   <ul>
+                   <li><a href="#">FR</a></li>
+                   <li><a href="#">DE</a></li>
+                   <li><a href="#">PT</a></li>
+                </ul>
+               
+               </li>
+              
+</ul>
+</nav>
+<script>
+  const btn=document.querySelector('#btn');
+const menu=document.querySelectorAll('ul');
+const btn1=menu[0].querySelector('#btn-1');
+const btn1Li=menu[0].querySelector('.drop-down');
+console.log(btn1Li);
+btn.addEventListener('click',function(){
+    if(btn.checked){
+        menu[0].style.display="block";     
+        
+    }else{
+        menu[0].style.display="none";
+        menu[1].style.display="none";
+
+    }
+})
+
+btn1Li.addEventListener('click',function(){
+   menu[1].classList.toggle('reveal');
+})
+
+
+
+</script>
+
+<!-- <script src="../../assets/script.js"></script> -->
+ 
+</body>
 </html>
