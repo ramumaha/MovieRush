@@ -1,5 +1,21 @@
 .poster{
-    height:500px;
-    width:500px;
+    height:250px;
+    width:250px;
     border-radius: 12px;
+}
+
+.container{
+    position:relative;
+}
+
+.container  img{
+    display: block;
+}
+
+.container  .fa-bookmark{
+    position:absolute;
+    top:0;
+    right:0;
+    left: 230px;
+    bottom:10px;
 }
