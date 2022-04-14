@@ -18,4 +18,11 @@
     right:0;
     left: 230px;
     bottom:10px;
+    color:red;
 }
+
+.container  .fa-bookmark.active{
+    color:green;
+}
+
+

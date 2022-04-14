@@ -14,7 +14,9 @@
     src="https://www.hnldesign.nl/wp-content/uploads/2020/08/resized/1920/0/90/0/usm/Dunkirk-Poster-by-hnldesign.jpg"
     alt="notting hill"
     class="img-responsive poster">
-<i class="fa fa-bookmark" style="color:green;font-size: 30px;"></i>
+    <div (click)="toggleColor()">
+<i class="fa fa-bookmark"  style="font-size: 25px;"[ngClass]="{'active':isActive}"></i>
+</div>
 </div>
 </body>
 </html>
