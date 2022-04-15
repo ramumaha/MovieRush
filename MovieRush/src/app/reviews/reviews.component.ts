@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-
+  max = 5;
+  rate = 2;
+  isReadonly = false;
   constructor() { }
-  currentRate:number=3;
+
 
   ngOnInit(): void {
   }

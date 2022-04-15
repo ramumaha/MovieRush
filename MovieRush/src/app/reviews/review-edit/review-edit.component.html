@@ -1,1 +1,67 @@
-<p>review-edit works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Review</title>
+  </head>
+  <body>
+    <div class="cols">
+      <div class="row-md-4">
+        <br />
+        <div 
+        class="list-group-item clearfix"
+        *ngFor="let movies of movies">
+        <div>
+          <img 
+          src="{{movies.imgPath}}"
+          alt="{{movies.name}}"
+          class="img-responsive"
+          style="max-height:80px;">
+            <h5 class="list-group-item-heading" align="center">{{movies.name}}</h5>
+          
+    </div>
+    </div>
+        <hr />
+      </div>
+      <div class="row-md-4">
+        <form>
+          <div class="cols">
+            <div class="row-sm-5 form-group">
+              <label for="rating">YOUR RATING</label>
+              <br />
+              rating comes here
+            </div>
+            <div class="row-sm-5 form-group">
+              <label for="headline">YOUR REVIEW</label>
+              <input
+                type="text"
+                id="headline"
+                class="form-control"
+                placeholder="Write a headline for your review"
+              />
+            </div>
+
+            <div class="row-sm-5 form-group">
+              <textarea
+                name="review"
+                rows="10"
+                cols="23"
+                placeholder="write your review here"
+              ></textarea>
+            </div>
+            <div class="row-sm-5 form-group">
+              <label for="spoilers">Does your review contain spoilers?</label>
+              <input type="radio" id="html" name="spoilers" />
+              <label for="spoilers">yes</label>
+              <input type="radio" name="spoilers" />
+              <label for="spoilers">no</label><br />
+            </div>
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

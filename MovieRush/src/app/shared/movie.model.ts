@@ -2,11 +2,11 @@ import { Time } from "@angular/common";
 
 export class Movie{
     public name:string;
-    public movieGenre:string;
-    public desc:string;
     public imgPath:string;
+    public movieGenre?:string;
+    public desc?:string;
 
-    constructor(name:string,desc:string,imgPath:string,movieGenre:string){
+    constructor(name:string,imgPath:string,movieGenre?:string,desc?:string){
         this.name=name;
         this.desc=desc;
         this.imgPath=imgPath;
