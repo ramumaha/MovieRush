@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>Add Review</title>
   </head>
   <body>
@@ -21,8 +22,8 @@
           style="max-height:80px;">
             <h5 class="list-group-item-heading" align="center">{{movies.name}}</h5>
           
-    </div>
-    </div>
+    </div> 
+   </div> 
         <hr />
       </div>
       <div class="row-md-4">
@@ -31,7 +32,8 @@
             <div class="row-sm-5 form-group">
               <label for="rating">YOUR RATING</label>
               <br />
-              rating comes here
+              <ngb-rating [max]="10" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
+              <p>Rating:{{currentRate}}</p>
             </div>
             <div class="row-sm-5 form-group">
               <label for="headline">YOUR REVIEW</label>

@@ -11,6 +11,7 @@ import { MovieItemComponent } from './movies/movie-list/movie-item/movie-item.co
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
 import { MovieAssetsComponent } from './movies/movie-assets/movie-assets.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MovieAssetsComponent } from './movies/movie-assets/movie-assets.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
