@@ -1,0 +1,16 @@
+<div
+class="list-group-item clearfix"
+*ngFor="let movie of movies">
+<div class="pull-center">
+    <h4 class="list-group-item-heading">{{movie.name}}</h4>
+</div>
+<span class="pull-left">
+    <img 
+    src="{{movie.imgPath}}"
+    alt="{{movie.name}}"
+    class="img-responsive"
+    style="max-height:50px;">
+</span>
+<h3>About the film</h3>
+<p class="list-group-item-text">{{movie.desc}}</p>
+</div>
