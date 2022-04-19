@@ -24,14 +24,14 @@
             <span class="fa fa-search"></span>
         <input type="checkbox" id="btn">
         </li>
-               <li><a href="#">HOME</a></li>
+               <li><a href="#" (click)="onSelect('home')">HOME</a></li>
                <li>
                <img src="bookmark.png" class="bookmark" alt="reel" />
-               <a href="#">WATCHLIST</a></li>
-               <li><a href="#">SIGN IN</a></li> 
+               <a href="#" (click)="onSelect('watchlist')" >WATCHLIST</a></li>
+               <li><a href="#" (click)="onSelect('signin')">SIGN IN</a></li> 
                <li> 
                 <input type="checkbox" id="btn-1">
-                <a href="#" >EN</a>
+                <a href="#" (click)="onSelect('language')" >EN</a>
                    <img src="down-arrow.png" class="drop-down" alt="drop-down" />  
                    
                    <ul>

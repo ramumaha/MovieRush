@@ -12,6 +12,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
 import { MovieAssetsComponent } from './movies/movie-assets/movie-assets.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReviewsComponent,
     ReviewEditComponent,
     MovieAssetsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
