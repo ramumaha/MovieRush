@@ -91,7 +91,7 @@
     top:280px;
 }
 .btn-next{
-    position:absolute;
+    /* position:absolute; */
     top:280px;
     left:978px;
     
@@ -114,3 +114,6 @@
 
 
 
+.movielist{
+    background-color: #E7E7E7;
+}

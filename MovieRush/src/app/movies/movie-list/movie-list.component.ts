@@ -1,6 +1,11 @@
 import { Component, OnInit ,Input} from '@angular/core';
 
-import { Movie } from '../../shared/movie.model';
+
+interface moviePoster{
+  imageSrc:string;
+  imageAlt:string;
+
+}
 
 @Component({
   selector: 'app-movie-list',
@@ -8,14 +13,16 @@ import { Movie } from '../../shared/movie.model';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  @Input() movies:Movie[]=[
-    new Movie('Test','this is test','https://assetscdn1.paytm.com/images/cinema/KGF-1035x420-c3374de0-b6ff-11ec-9639-8322852eadd4.jpg','action')
 
-  ]
+  @Input() posters:moviePoster[]=[];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClicked():void{
+
   }
 
 }

@@ -2,7 +2,6 @@
 <header-component (notify)="changePage($event)"></header-component>
 </div>
 <app-movie-details *ngIf="active==='watchlist'"></app-movie-details>
-<app-home  [images]="images" 
-[autoSlide]="true"
+<app-home  [images]="images"[autoSlide]="false"
 *ngIf="active!=='watchlist'"></app-home>
 <br>
