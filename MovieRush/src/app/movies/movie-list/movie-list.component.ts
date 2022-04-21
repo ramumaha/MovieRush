@@ -2,8 +2,9 @@ import { Component, OnInit ,Input} from '@angular/core';
 
 
 interface moviePoster{
-  posterSrc:string;
-  posterAlt:string;
+  imageSrc:string;
+  imageAlt:string;
+
 }
 
 @Component({
