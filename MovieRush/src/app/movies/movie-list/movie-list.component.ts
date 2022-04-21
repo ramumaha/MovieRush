@@ -3,8 +3,9 @@ import { Component, OnInit ,Input} from '@angular/core';
 <<<<<<< HEAD
 
 interface moviePoster{
-  posterSrc:string;
-  posterAlt:string;
+  imageSrc:string;
+  imageAlt:string;
+
 }
 =======
 import { Movie } from '../../shared/movie.model';
