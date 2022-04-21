@@ -1,15 +1,15 @@
 import { Component, OnInit ,Input} from '@angular/core';
 
-<<<<<<< HEAD
+
 
 interface moviePoster{
   imageSrc:string;
   imageAlt:string;
 
 }
-=======
+
 import { Movie } from '../../shared/movie.model';
->>>>>>> parent of 3ef8905 (side by side movie display)
+
 
 @Component({
   selector: 'app-movie-list',
