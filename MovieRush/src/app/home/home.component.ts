@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 interface carouseImages{
-  imageSrc:string;
-  imageAlt:string;
+  posterSrc:string;
+  posterAlt:string;
 }
 
 @Component({
