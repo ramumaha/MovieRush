@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+  <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
@@ -24,14 +22,14 @@
             <span class="fa fa-search"></span>
         <input type="checkbox" id="btn">
         </li>
-               <li><a href="#" (click)="onSelect('home')">HOME</a></li>
+               <li><a href="#">HOME</a></li>
                <li>
                <img src="bookmark.png" class="bookmark" alt="reel" />
-               <a href="#" (click)="onSelect('watchlist')" >WATCHLIST</a></li>
-               <li><a href="#" (click)="onSelect('signin')">SIGN IN</a></li> 
+               <a href="#">WATCHLIST</a></li>
+               <li><a href="#">SIGN IN</a></li> 
                <li> 
                 <input type="checkbox" id="btn-1">
-                <a href="#" (click)="onSelect('language')" >EN</a>
+                <a href="#" >EN</a>
                    <img src="down-arrow.png" class="drop-down" alt="drop-down" />  
                    
                    <ul>
@@ -41,35 +39,27 @@
                 </ul>
                
                </li>
-              
-</ul>
-</nav>
-<script>
-  const btn=document.querySelector('#btn');
-const menu=document.querySelectorAll('ul');
-const btn1=menu[0].querySelector('#btn-1');
-const btn1Li=menu[0].querySelector('.drop-down');
-console.log(btn1Li);
-btn.addEventListener('click',function(){
-    if(btn.checked){
-        menu[0].style.display="block";     
+            </ul>
+        </nav>
+        <script>
+          const btn=document.querySelector('#btn');
+        const menu=document.querySelectorAll('ul');
+        const btn1=menu[0].querySelector('#btn-1');
+        const btn1Li=menu[0].querySelector('.drop-down');
+        console.log(btn1Li);
+        btn.addEventListener('click',function(){
+            if(btn.checked){
+                menu[0].style.display="block";     
+                
+            }else{
+                menu[0].style.display="none";
+                menu[1].style.display="none";
         
-    }else{
-        menu[0].style.display="none";
-        menu[1].style.display="none";
-
-    }
-})
-
-btn1Li.addEventListener('click',function(){
-   menu[1].classList.toggle('reveal');
-})
-
-
-
+            }
+        })
+        
+        btn1Li.addEventListener('click',function(){
+           menu[1].classList.toggle('reveal');
+        })
+        
 </script>
-
-<!-- <script src="../../assets/script.js"></script> -->
- 
-</body>
-</html>

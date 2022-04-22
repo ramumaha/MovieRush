@@ -38,8 +38,7 @@ nav ul li{
 
 
 }
-
-nav ul ul li a:hover{
+av ul ul li a:hover{
   color:cyan;
   box-shadow: none;
 
@@ -73,7 +72,6 @@ nav ul li:hover > ul{
   visibility: visible;
 
 }
-
 nav ul ul li{
   position:relative;
   margin:0px;
@@ -103,8 +101,6 @@ nav ul li a:hover{
   box-shadow: 0 0 5px #33ffff,
               0 0 5px #66ffff;
 }
-
-
 
 nav ul  a:hover{
   color:cyan;
@@ -144,73 +140,70 @@ nav ul .search-icon .icon span{
 }
 
 .bookmark{
-width:20px;
-height:25px;
-background: url(../../assets/bookmark.png);
-transform: matrix(-1, 0, 0, 1, 0, 0);
-color:#FFFFFF
-}
-
-.drop-down{
-  width: 15px;
-  height: 15px;
-  left: 1670px;
-  top: 135px;
-  background: url(../../assets/down-arrow.png);
+  width:20px;
+  height:25px;
+  background: url(../../assets/bookmark.png);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  color:#FFFFFF
+  }
+  
+  .drop-down{
+    width: 15px;
+    height: 15px;
+    left: 1670px;
+    top: 135px;
+    background: url(../../assets/down-arrow.png);
+    }
+  
+  .show,.icon,input{
+  
+    display:none;
+  
   }
 
-.show,.icon,input{
+  .reveal{
+    display:block;
+  }
+    
+ @media (max-width:940px){
 
-  display:none;
-
-}
-
-@media all and (max-width:968px){
-  nav ul{
+    nav ul{
       margin-right: 0px;
       float:left;
   }
   nav .logo{
-      padding-left:30px;
-      width:100%;
-  }
-  nav ul li,nav ul ul li{
-      display:block;
-      width:100%;
-
-  }
-  nav ul ul{
-      top:70px;
-      position:static;
-      border-top:none;
-      float:none;
-      display:none;
-      opacity:1;
-      visibility: visible;
-  }
-  nav ul  ul a{
-      padding-left:40px;
-
-  }
-  .icon{
-      display:block;
-      color:white;
-      position:absolute;
-      right:40px;
-      line-height:70px;
-      font-size: 25px;
-      cursor:pointer;
-
- }
-  nav ul li a:hover{
-      box-shadow:none;
-
-  }
-
-
+    padding-left:30px;
+    width:100%;
+}
+nav ul li,nav ul ul li{
+  display:block;
+  width:100%;
 
 }
+nav ul ul{
+  top:70px;
+  position:static;
+  border-top:none;
+  float:none;
+  display:none;
+  opacity:1;
+  visibility: visible;
+}
 
-.reveal{
-  display:block;
+nav ul  ul a{
+  padding-left:40px;}
+.icon{
+    display:block;
+    color:white;
+    position:absolute;
+    right:40px;
+    line-height:70px;
+    font-size: 25px;
+    cursor:pointer;
+
+}
+nav ul li a:hover{
+  box-shadow:none;
+
+}
 }
