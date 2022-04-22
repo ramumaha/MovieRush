@@ -1,8 +1,20 @@
-<div class="navbar">
-<header-component (notify)="changePage($event)"></header-component>
-</div>
-<app-movie-details *ngIf="active==='watchlist'"></app-movie-details>
-<app-home  [images]="images" 
-[autoSlide]="false"
+<div class="cols">
+    <div class="row">
+        <div class="navbar">
+            <header-component (notify)="changePage($event)"></header-component>
+            </div>
+
+    </div>
+    <div class="row">
+        <app-home  [images]="images" [autoSlide]="false"
 *ngIf="active!=='watchlist'"></app-home>
+<!-- <app-movie-details></app-movie-details> -->
+
 <br>
+
+
+    </div>
+</div>
+
+
+
