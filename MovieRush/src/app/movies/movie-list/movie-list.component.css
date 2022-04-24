@@ -1,45 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 body{
     background-color: antiquewhite;
     font-family: 'Nunito', sans-serif;
+} 
+
+
+
+.fundClassesTable {
+  margin: 0 auto;
+  font-size: 11px;
+}
+
+td.tableItem {
+  text-align: center;
+  width: 100px;
 }
 
 
-.card{
-    /* position: relative; */
-    width:300px;
-    height:450px;
-    /* flex-direction: column; */
+.transpose tr {
+  display: block;
+  float: left;
 }
 
+.transpose th,
+.transpose td {
+  display: block;
+  
 
-.card .poster{
+
+}
+
+.transpose {
+  overflow-x: scroll;
+}
+
+tr .card{
+    flex-direction: column; 
+    column-gap: 10px;
+   
+
+ } 
+
+
+td .card .poster{
     position:relative;
     overflow:hidden;
-    background:#000;  
    
 }
 
-.card .poster:before{
+td .card .poster:before{
     content:'';
     position:relative;
     bottom:0;
     left:0;
-    width:100%;
-    height:100%;
     background: linear-gradient(0deg,#000 50%,transparent);
     z-index:1;
 
 }
 .card .poster img{
-    width:100%;
-    padding:10px
-
+    /* padding:3px; */
+    height:250px;
+    width:350px; 
+    object-fit:contain;
 }
 
-.details{
+td .details{
     position:relative;
-    padding:20px;
+     /* padding:0; */
     width:100%;
     height:100%;
     left:0;
@@ -48,41 +75,46 @@ body{
     z-index:2;
 }
 
-.details h2{
-    color: #fff;
+td .details h5{
+    position:absolute;
+    color: black;
     margin:0;
-    padding:0;
+    /* padding:0; */
     font-size:20px;
 }
 
-.details h2 span{
+td.details h5 span{
     font-size:14px;
     color:#ff9890;
 }
-.rating{
-    position:relative;
-    padding:5px 0;
+td .details .rating{
+    position:absolute;
+    /* padding:5px 0; */
 }
-rating .fa{
+td .rating .fa{
     color:#f7f406;
-    margin-right:2px;
+    margin-right:4px;
     font-size:16px;
 
 }
 
-.rating span{
-    color:#fff;
-    padding:0 5px;
+td img{
+    object-fit: contain;
 }
 
-.tags{
+td .rating span{
+    color:#fff;
+    /* padding:0 5px; */
+}
+
+td .tags{
     position:relative;
     margin-top:5px;
 
 }
 
-.tags span{
-    padding:2px 5px;
+td .tags span{
+    /* padding:2px 5px; */
     margin-right:2px;
     color:#fff;
     display: inline-block;
@@ -90,57 +122,62 @@ rating .fa{
 
 }
 
-.tags span.genre1{
+td .tags span.genre1{
     background: #7206f7;
 
 }
 
-.tags span.genre2{
+td .tags span.genre2{
     background: #f70661;
 
 }
 
-.info{
+td.info{
     color:#fff;
 
 }
 
-.info p{
+td .info p{
     margin:15px 0 10px;
     
 }
 
-.star{
+td .star{
     position:relative;
 }
 
-.star h4{
+td .star h4{
     margin:0;
-    padding:0;
+    /* padding:0; */
     font-size: 20px;
     color:#f7f403;
 
 }
 
-.star ul{
+td .star ul{
     margin:10px 0 0;
-    padding:0;
+    /* padding:0; */
     display: flex;
 }
 
-.star ul li{
+td .star ul li{
     list-style: none;
     width:35px;
     height:35px;
     background: #fff;
-    /* border-radius: 50%; */
+    border-radius: 50%; 
     overflow: hidden;
     margin-right: 6px;
 
-}
+} 
 
-.star ul li img{
+td .star ul li img{
     width:100%;
 
 
 }
+
+.row{
+    grid-row: 1;
+}  
+
