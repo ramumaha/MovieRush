@@ -1,6 +1,6 @@
  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 body{
-    background-color: antiquewhite;
+   
     font-family: 'Nunito', sans-serif;
 } 
 
@@ -8,9 +8,7 @@ body{
 
 .fundClassesTable {
   margin: 0 auto;
-  font-size: 11px;
-  
-  
+  font-size: 11px; 
 }
 
 .transpose tr {
@@ -21,6 +19,8 @@ body{
 .transpose th,
 .transpose td {
   display: block;
+  cursor:pointer
+  
   
 
 
@@ -112,3 +112,17 @@ td img{
     margin-top:25px;
 }
 
+
+.tagline{
+    margin-top: 50px;
+    font-size: 32px;
+    font-family: 'Nunito';
+    display: flex;
+    text-align: start;
+    left:120px;
+
+}
+
+.posterTable{
+    background-color: #E7E7E7;
+}
