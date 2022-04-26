@@ -1,28 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
-   sign_in_btn = document.querySelector("#sign-in-btn");
- sign_up_btn = document.querySelector("#sign-up-btn");
- container = document.querySelector(".container");
+export class RegisterComponent implements AfterViewInit {
+  @ViewChild('loginf') loginEl: ElementRef;
+  @ViewChild('registerf') registerEl: ElementRef;
+  @ViewChild('buttonf') buttonEl: ElementRef;
+  loginForm:HTMLFormElement;
+  registerForm:HTMLFormElement;
+  buttonDiv:HTMLDivElement;
 
+  
+
+  
+  
   constructor() { }
-
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.loginForm=this.loginEl.nativeElement;
+    this.registerForm=this.registerEl.nativeElement;
+    this.buttonDiv=this.buttonEl.nativeElement;
+   
+  
   }
 
-  removeClass(){
-    this.container.classList.remove("sign-up-mode");
+  login(){
+    this.loginForm.style.left="40px"
+    this.registerForm.style.left="450px";
+    this.buttonDiv.style.left="0";
+
+
+
   }
-  addClass(){
-    this.container.classList.add("sign-up-mode");
 
-
+  register(){
+    this.loginForm.style.left="-400px";
+   this.registerForm.style.left="40px";
+   this.buttonDiv.style.left="100px";
   }
-
 
 }
