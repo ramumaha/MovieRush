@@ -9,19 +9,15 @@ body{
 .fundClassesTable {
   margin: 0 auto;
   font-size: 11px;
+  
+  
 }
-
-td.tableItem {
-  text-align: center;
-  width: 100px;
-}
-
 
 .transpose tr {
   display: block;
   float: left;
 }
-
+ 
 .transpose th,
 .transpose td {
   display: block;
@@ -34,150 +30,85 @@ td.tableItem {
   overflow-x: scroll;
 }
 
+
 tr .card{
     flex-direction: column; 
-    column-gap: 10px;
+    column-gap: 15px;
    
 
  } 
 
 
-td .card .poster{
-    position:relative;
-    overflow:hidden;
-   
-}
-
-td .card .poster:before{
-    content:'';
-    position:relative;
-    bottom:0;
-    left:0;
-    background: linear-gradient(0deg,#000 50%,transparent);
-    z-index:1;
-
-}
-.card .poster img{
-    /* padding:3px; */
-    height:250px;
-    width:350px; 
-    object-fit:contain;
-}
 
 td .details{
     position:relative;
-     /* padding:0; */
+     padding:0;
     width:100%;
     height:100%;
     left:0;
     box-sizing: border-box;
     transition:0.5s;
     z-index:2;
+    margin-top:25px;
 }
 
-td .details h5{
-    position:absolute;
-    color: black;
-    margin:0;
-    /* padding:0; */
-    font-size:20px;
-}
 
-td.details h5 span{
-    font-size:14px;
-    color:#ff9890;
-}
-td .details .rating{
-    position:absolute;
-    /* padding:5px 0; */
-}
-td .rating .fa{
-    color:#f7f406;
-    margin-right:4px;
-    font-size:16px;
 
-}
+
 
 td img{
     object-fit: contain;
+    border-radius: 20px;
 }
 
-td .rating span{
-    color:#fff;
-    /* padding:0 5px; */
-}
 
-td .tags{
+.card{
     position:relative;
-    margin-top:5px;
+    bottom:50%;
+    width:185px;
+    height:300px;
+    background: black;
+    border-radius: 20px;
+    border-bottom:20px;
+    border-top: 20px;
+    margin-top:50px;
+}
+
+
+.card .poster .img{
+    width:100%;
+    border-top: 20px;
+   
+    
 
 }
 
-td .tags span{
-    /* padding:2px 5px; */
-    margin-right:2px;
-    color:#fff;
-    display: inline-block;
-    border-radius: 4px;
-
+.detials{
+    position:absolute;
+    padding:20px;
+    width:100%;
+    height:100%;
+    left:0;
 }
 
-td .tags span.genre1{
-    background: #7206f7;
-
-}
-
-td .tags span.genre2{
-    background: #f70661;
-
-}
-
-td.info{
-    color:#fff;
-
-}
-
-td .info p{
-    margin:15px 0 10px;
+.rating{
+    position:relative;
+    color:white;
+    left:20.2px;
+    
     
 }
 
-td .star{
+.likes{
     position:relative;
+    left:15px;
 }
 
-td .star h4{
-    margin:0;
-    /* padding:0; */
-    font-size: 20px;
-    color:#f7f403;
 
+.genere{
+    position:relative;
+    color:grey;
+    size:12px;
+    margin-top:25px;
 }
-
-td .star ul{
-    margin:10px 0 0;
-    /* padding:0; */
-    display: flex;
-}
-
-td .star ul li{
-    list-style: none;
-    width:35px;
-    height:35px;
-    background: #fff;
-    border-radius: 50%; 
-    overflow: hidden;
-    margin-right: 6px;
-
-} 
-
-td .star ul li img{
-    width:100%;
-
-
-}
-
-.row{
-    grid-row: 1;
-}  
 
