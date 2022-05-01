@@ -26,40 +26,26 @@
                <li>
                <img src="bookmark.png" class="bookmark" alt="reel" />
                <a href="#">WATCHLIST</a></li>
-               <li><a href="#">SIGN IN</a></li> 
+               
+               <li><a href="#">SIGN IN</a>
+               
+               <ul class="btn-group"
+               appDropDown>
+                   <li class="user">SIGNOUT</li>
+                   <li class="user">WISHLIST</li>
+                   <li class="user">REVIEWS</li>
+               </ul>
+            </li> 
                <li> 
                 <input type="checkbox" id="btn-1">
                 <a href="#" >EN</a>
                    <img src="down-arrow.png" class="drop-down" alt="drop-down" />  
-                   
                    <ul>
                    <li><a href="#">FR</a></li>
                    <li><a href="#">DE</a></li>
                    <li><a href="#">PT</a></li>
                 </ul>
-               
                </li>
             </ul>
         </nav>
-        <script>
-          const btn=document.querySelector('#btn');
-        const menu=document.querySelectorAll('ul');
-        const btn1=menu[0].querySelector('#btn-1');
-        const btn1Li=menu[0].querySelector('.drop-down');
-        console.log(btn1Li);
-        btn.addEventListener('click',function(){
-            if(btn.checked){
-                menu[0].style.display="block";     
-                
-            }else{
-                menu[0].style.display="none";
-                menu[1].style.display="none";
-        
-            }
-        })
-        
-        btn1Li.addEventListener('click',function(){
-           menu[1].classList.toggle('reveal');
-        })
-        
-</script>
+     </body>

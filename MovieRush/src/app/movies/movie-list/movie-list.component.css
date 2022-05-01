@@ -56,9 +56,11 @@ td .details{
 
 
 
-td img{
-    object-fit: contain;
+.poster-image{
+    width:185px;
+    height:273px;
     border-radius: 20px;
+    
 }
 
 
@@ -76,7 +78,8 @@ td img{
 
 
 .card .poster .img{
-    width:100%;
+    /* width:20%; */
+    
     border-top: 20px;
    
     

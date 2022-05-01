@@ -14,6 +14,7 @@ import { MovieAssetsComponent } from './movies/movie-assets/movie-assets.compone
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { DropDownDirective} from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     ReviewEditComponent,
     MovieAssetsComponent,
     HomeComponent,
+    DropDownDirective
   ],
   imports: [
     BrowserModule,

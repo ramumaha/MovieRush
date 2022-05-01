@@ -6,15 +6,15 @@
 
     </div>
     <div class="row">
-        <!-- <app-home  [images]="images" [autoSlide]="true"
-*ngIf="active!=='watchlist'"></app-home>   -->
- <app-movie-details></app-movie-details>
+        <app-home  [images]="images" [autoSlide]="false"
+*ngIf="active==='home'"></app-home>  
+ <app-movie-details *ngIf="active!='home'"></app-movie-details>
 
-<!-- <br>
+<br>
 
 
-    <!-- </div> -->
-</div>
+    </div> 
+
 
 
 <!-- <app-register></app-register> -->
