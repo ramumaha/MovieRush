@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { DropDownDirective} from './shared/dropdown.directive';
+import {MovieService} from './shared/movie.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { DropDownDirective} from './shared/dropdown.directive';
     NgbModule,
     IvyCarouselModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

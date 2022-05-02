@@ -1,7 +1,6 @@
-import { Component, OnInit ,Input, EventEmitter, Output } from '@angular/core';
-
-
-
+import { Component, OnInit ,Input} from '@angular/core';
+import { Movie } from 'src/app/shared/movie.model';
+import { MovieService } from 'src/app/shared/movie.service';
 interface moviePoster{
   imageSrc:string;
   imageAlt:string;
@@ -15,15 +14,15 @@ interface moviePoster{
   
 })
 export class MovieListComponent implements OnInit {
-  @Input() posters:moviePoster[]=[];
-  ngOnInit() {
-  }
+  @Input() posters:Movie[]=[];
   fundClassDetailsViewModelData = [];
   transpose = true;
-
-  constructor() {
-
+  constructor(private movieservice:MovieService ){}
+  ngOnInit() {
+    this.posters=this.movieservice.getMovies();
   }
+  
+
 
   toggleTranspose() {
     this.transpose = !this.transpose;
