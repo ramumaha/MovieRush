@@ -38,7 +38,7 @@ nav ul li{
 
 
 }
-av ul ul li a:hover{
+a ul ul li a:hover{
   color:cyan;
   box-shadow: none;
 
@@ -77,10 +77,13 @@ nav ul ul li{
   margin:0px;
   width: 60px;
   float:none;
+  font-size: large;
   display:list-item;
   color: #fff;
   border-bottom: 1px solid rgba(0,0,0,0.3);
 }
+
+
 
 nav ul ul li a{
   line-height: 40px;
@@ -100,6 +103,30 @@ nav ul li a:hover{
   border-radius: 5px;
   box-shadow: 0 0 5px #33ffff,
               0 0 5px #66ffff;
+              
+}
+
+nav ul li ul .user:hover{
+  color:cyan;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #33ffff,
+              0 0 5px #66ffff;  
+  line-height: 40px;
+  cursor:pointer;
+  
+}
+
+nav ul li ul .user{
+  position:relative;
+  margin:0px;
+  width: 90px;
+  float:none;
+  font-size: large;
+  display:list-item;
+  color: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  padding-bottom:2px;
+
 }
 
 nav ul  a:hover{
@@ -164,8 +191,13 @@ nav ul .search-icon .icon span{
   .reveal{
     display:block;
   }
+
+
+.open{
+  font-size: 16px;;
+}
     
- @media (max-width:940px){
+ @media (max-width:840px){
 
     nav ul{
       margin-right: 0px;
@@ -207,3 +239,4 @@ nav ul li a:hover{
 
 }
 }
+

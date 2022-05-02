@@ -1,0 +1,128 @@
+ @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+body{
+   
+    font-family: 'Nunito', sans-serif;
+} 
+
+
+
+.fundClassesTable {
+  margin: 0 auto;
+  font-size: 11px; 
+}
+
+.transpose tr {
+  display: block;
+  float: left;
+}
+ 
+.transpose th,
+.transpose td {
+  display: block;
+  cursor:pointer
+  
+  
+
+
+}
+
+.transpose {
+  overflow-x: scroll;
+}
+
+
+tr .card{
+    flex-direction: column; 
+    column-gap: 15px;
+   
+
+ } 
+
+
+
+td .details{
+    position:relative;
+     padding:0;
+    width:100%;
+    height:100%;
+    left:0;
+    box-sizing: border-box;
+    transition:0.5s;
+    z-index:2;
+    margin-top:25px;
+}
+
+
+
+
+
+.poster-image{
+    width:185px;
+    height:273px;
+    border-radius: 20px;
+    
+}
+
+
+.card{
+    position:relative;
+    bottom:50%;
+    width:185px;
+    height:300px;
+    background: black;
+    border-radius: 20px;
+    border-bottom:20px;
+    border-top: 20px;
+    margin-top:50px;
+}
+
+
+.card .poster .img{
+    /* width:20%; */
+    
+    border-top: 20px;
+   
+    
+
+}
+
+.detials{
+    position:absolute;
+    padding:20px;
+    width:100%;
+    height:100%;
+    left:0;
+}
+
+.rating{
+    position:relative;
+    color:white;
+    left:20.2px;
+    
+    
+}
+
+.likes{
+    position:relative;
+    left:15px;
+}
+
+
+.genere{
+    position:relative;
+    color:grey;
+    size:12px;
+    margin-top:25px;
+}
+
+
+.tagline{
+    margin-top: 50px;
+    font-size: 32px;
+    font-family: 'Nunito';
+    display: flex;
+    text-align: start;
+    left:120px;
+
+}
+

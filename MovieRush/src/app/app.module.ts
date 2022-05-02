@@ -13,7 +13,9 @@ import { ReviewEditComponent } from './reviews/review-edit/review-edit.component
 import { MovieAssetsComponent } from './movies/movie-assets/movie-assets.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
-
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { DropDownDirective} from './shared/dropdown.directive';
+import {MovieService} from './shared/movie.service';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,15 @@ import { HomeComponent } from './home/home.component';
     ReviewEditComponent,
     MovieAssetsComponent,
     HomeComponent,
+    DropDownDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    IvyCarouselModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {MovieService} from 'src/app/shared/movie.service';
+import { Movie } from '../shared/movie.model';
 
 interface carouseImages{
   imageSrc:string;
@@ -11,13 +13,15 @@ interface carouseImages{
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @Input() images:carouseImages[]=[];
+  @Input() images:Movie[]=[];
   @Input() indicators=true;
   @Input() controls=true;
   @Input() autoSlide=false;
   @Input() slideInterval=3000;
   selectedIndex=0;
-  constructor() { }
+  constructor(private movieservice:MovieService) {
+    this.images=this.movieservice.getMovies();
+   }
 
   ngOnInit(): void {
     if(this.autoSlide){

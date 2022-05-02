@@ -29,8 +29,8 @@
 
 .carousel-dot-container{
     position:absolute;
-    top:500px;
-    left:678px;
+    top:390px;
+    left:925px;
     display:flex;
     justify-content: center;
     padding:0;
@@ -90,13 +90,13 @@
 }
 
 .btn-prev{
-    right:678px;
+    right:1050px;
     top:280px;
 }
 .btn-next{
-    position:absolute;
-    top:280px;
-    left:778px;
+    /* position:absolute;*/
+     top:280px;
+    left:1050px; 
     
 
 }
@@ -116,4 +116,16 @@
 }
 
 
+@media (max-width:840px){
+    .btn-next{
+        display: none;
+    }
+    .btn-prev{
+        display: none;
+    }
+
+    .carousel-dot-container{
+        display: none;
+    }
+}
 
