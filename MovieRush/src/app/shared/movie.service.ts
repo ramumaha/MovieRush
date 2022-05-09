@@ -28,4 +28,8 @@ export class MovieService{
           return this.images.slice();
           
       }
+
+      getMoviesByname(imagAlt:string){
+        return this.images[imagAlt];
+      }
 }
