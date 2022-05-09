@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { DropDownDirective} from './shared/dropdown.directive';
 import {MovieService} from './shared/movie.service';
+import { WatchlistComponent } from './watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +31,15 @@ import {MovieService} from './shared/movie.service';
     ReviewEditComponent,
     MovieAssetsComponent,
     HomeComponent,
-    DropDownDirective
+    DropDownDirective,
+    WatchlistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    AppRoutingModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]
