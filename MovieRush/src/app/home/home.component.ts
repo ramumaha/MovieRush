@@ -2,11 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import {MovieService} from 'src/app/shared/movie.service';
 import { Movie } from '../shared/movie.model';
 
-interface carouseImages{
-  imageSrc:string;
-  imageAlt:string;
-}
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

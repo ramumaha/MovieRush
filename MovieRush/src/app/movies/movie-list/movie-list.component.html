@@ -1,44 +1,47 @@
 <div class="posterTable">
-    <br>
-     <table class="fundClassesTable" [class.transpose]="transpose" id="toggled-element">
-         <th class="tagline">What to watch?</th>
-		<tr *ngFor="let f of posters">
-                <td>
-         <a routerLink="/" class="movie-selected">
-
-                <div class="poster col-sm-12 links" >
-                <div class="card">
-        <div class="poster"><img [src]="f.imageSrc" class="poster-image"></div>
-    <img src="../../assets/heart.svg" class="likes"><span class="rating">83% 123K likes</span>
-        <div class="details">{{f.imageAlt}}</div>
-         
-       
-    </div>
-    <div class="genere">Animation/Action</div>  
-    </div>
-</a>   
-             
-            </td>  
-
-		</tr>
-        <br>
-        <tr *ngFor="let f of posters">
-            <td>
-            <div class="poster col-sm-12 links" >
+  <br />
+  <table
+    class="fundClassesTable"
+    [class.transpose]="transpose"
+    id="toggled-element"
+  >
+    <th class="tagline">What to watch?</th>
+    <tr *ngFor="let f of posters;let i=index">
+      <td>
+        <a routerLink="/" class="movie-selected">
+          <div class="poster col-sm-12 links">
             <div class="card">
-    <div class="poster"><img src="../../assets/tintin.jpeg" class="poster-image"></div>
-<img src="../../assets/heart.svg" class="likes"><span class="rating">83% 123K likes</span>
-    <div class="details">Tintin(2010)</div>
-     
-   
-</div>
-<div class="genere">Animation/Action</div>  
-</div>
-            
-         
-        </td>           
+              <div class="poster">
+                <img [src]="f.imageSrc" class="poster-image" />
+              </div>
+              <img src="../../assets/heart.svg" class="likes" /><span
+                class="rating"
+                >83% 123K likes</span
+              >
+              <div class="details">{{ f.imageAlt }}</div>
+            </div>
+            <div class="genere">Animation/Action</div>
+          </div>
+        </a>
+      </td>
     </tr>
-	</table>
+    <br />
+    <tr *ngFor="let f of posters">
+      <td>
+        <div class="poster col-sm-12 links">
+          <div class="card">
+            <div class="poster">
+              <img src="../../assets/tintin.jpeg" class="poster-image" />
+            </div>
+            <img src="../../assets/heart.svg" class="likes" /><span
+              class="rating"
+              >83% 123K likes</span
+            >
+            <div class="details">Tintin(2010)</div>
+          </div>
+          <div class="genere">Animation/Action</div>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
-
-   

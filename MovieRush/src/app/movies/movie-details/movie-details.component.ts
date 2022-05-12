@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute,Params } from '@angular/router';
+import { Movie } from 'src/app/shared/movie.model';
 import { MovieService } from 'src/app/shared/movie.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { MovieService } from 'src/app/shared/movie.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-   movie:string;
-  
+   id:number;
+   @Input() movie:Movie;
+   isActive:boolean;
 
 
   constructor(private route:ActivatedRoute,private movieservice:MovieService ) { }
@@ -18,13 +20,15 @@ export class MovieDetailsComponent implements OnInit {
     this.route.params
     .subscribe(
       (params:Params)=>{
-        this.movie=params['movie'];
+        this.id=+params['id'];
+        this.movie=this.movieservice.getMovieById(this.id);
       }
     )
+   
   }
+  toggleColor(){
+    this.isActive=!this.isActive;    
 
-  getMovie(movie:string){
-    return  this.movieservice.getMoviesByname[movie];
   }
 
 }

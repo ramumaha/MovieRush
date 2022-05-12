@@ -1,19 +1,45 @@
-<div class="row">
-    <div class="col-md-4">
-        <br>
-       <app-movie-assets></app-movie-assets> 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Movie Assets</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <div class="container">
+                <img 
+                src="{{movie.imageSrc}}"
+                alt="{{movie.imageAlt}}"
+                class="img-responsive poster">
+                <div (click)="toggleColor()">
+            <i class="fa fa-bookmark"  style="font-size: 25px;"[ngClass]="{'active':isActive}"></i>
+            </div>
+            </div>
+            <br>
+            <p><iframe  [src]="movie.trailerlink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer"></iframe></p>
+        </div>
+        <div class="col-md-4">
+         <app-movies ></app-movies>
+    
+        </div>
+    
+        <div class="col-md-3">
+            <br>
+            <app-reviews></app-reviews>
+    
+        </div>
+    
     </div>
-    <div class="col-md-4">
-     <app-movies ></app-movies>
-
-    </div>
-
-    <div class="col-md-3">
-        <br>
-        <app-reviews></app-reviews>
-
-    </div>
-
-</div>
-
-
+    
+    
+</body>
+</html>
