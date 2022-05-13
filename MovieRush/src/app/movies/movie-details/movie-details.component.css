@@ -1,22 +1,28 @@
+body{
+    padding-left: 40px;
+}
 .poster{
-    height:250px;
-    width:250px;
+    height:450px;
+    width:350px;
     border-radius: 12px;
+    padding: 10 10 10 10;
 }
 
 .container{
     position:relative;
+    padding: 10 10 10 10;
 }
 
 .container  img{
     display: block;
+    padding: 10 10 10 10;
 }
 
 .container  .fa-bookmark{
     position:absolute;
     top:0;
     right:0;
-    left: 230px;
+    left: 330px;
     bottom:10px;
     color:red;
 }

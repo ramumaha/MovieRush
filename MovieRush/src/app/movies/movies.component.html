@@ -1,1 +1,34 @@
-<p>Details about the movie comes here</p>
+<h1>{{ movie.imageAlt }}</h1>
+<span class="age">16+</span><span> {{ movie.movieGenre }}</span>
+<h3>About the Film</h3>
+<br />
+<table class="about">
+  <div class="heading">
+    <tr>Date
+    <td>    {{movie.releaseDate}}</td>
+</tr>
+    <tr>Country
+        <td>    {{movie.country}}</td>
+    </tr>
+    <tr>Genere
+        <td>    {{movie.movieGenre}}</td>
+    </tr>
+    <tr>Director
+        <td>    {{movie.director}}</td>
+    </tr>
+    <tr>Writers
+        <td>    {{movie.writer}}</td>
+    </tr>
+    <tr>Time
+        <td>    {{movie.time}}</td>
+    </tr>
+  </div>
+</table>
+
+<button class="drop-down" (click)="toggle()">\/ </button><span class="view">View All the information</span>
+<div *ngIf="show">
+    <div class="box box-down orange">
+        <h4>Storyline</h4>
+        <p>{{movie.desc}}</p>
+        </div>
+</div>

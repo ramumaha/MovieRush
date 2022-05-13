@@ -17,15 +17,14 @@
                 alt="{{movie.imageAlt}}"
                 class="img-responsive poster">
                 <div (click)="toggleColor()">
-            <i class="fa fa-bookmark"  style="font-size: 25px;"[ngClass]="{'active':isActive}"></i>
+            <i class="fa fa-bookmark"  style="font-size: 35px;"[ngClass]="{'active':isActive}"></i>
             </div>
             </div>
             <br>
-            <p><iframe  [src]="movie.trailerlink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer"></iframe></p>
+            <!-- <p><iframe  [src]="movie.trailerlink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer"></iframe></p> -->
         </div>
         <div class="col-md-4">
-         <app-movies ></app-movies>
-    
+       <app-movies [movie]="movie"></app-movies>    
         </div>
     
         <div class="col-md-3">
