@@ -9,7 +9,7 @@ import { MovieService } from 'src/app/shared/movie.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-   id:number;
+   @Input()id:number;
    @Input() movie:Movie;
    isActive:boolean;
 

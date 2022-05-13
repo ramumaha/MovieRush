@@ -8,7 +8,7 @@
     <th class="tagline">What to watch?</th>
     <tr *ngFor="let f of posters;let i=index">
       <td>
-        <a routerLink="/" class="movie-selected">
+        <a [routerLink]="['/',i]">
           <div class="poster col-sm-12 links">
             <div class="card">
               <div class="poster">
