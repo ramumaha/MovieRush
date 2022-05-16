@@ -25,7 +25,10 @@
   </div>
 </table>
 
-<button class="drop-down" (click)="toggle()">\/ </button><span class="view">View All the information</span>
+
+<button class="drop-down" (click)="toggle()">
+    <i class="fa fa-angle-down" style="font-size:25px"></i>
+</button><span class="view">    View All the information</span>
 <div *ngIf="show">
     <div class="box box-down orange">
         <h4>Storyline</h4>

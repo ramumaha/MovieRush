@@ -15,6 +15,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { DropDownDirective} from './shared/dropdown.directive';
 import {MovieService} from './shared/movie.service';
 import { WatchlistComponent } from './watchlist/watchlist.component';
+import { reviewSerivce } from './reviews/reviews.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
     IvyCarouselModule,
     AppRoutingModule
   ],
-  providers: [MovieService],
+  providers: [MovieService,reviewSerivce],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,14 +13,16 @@
         <br />
         <div 
         class="list-group-item clearfix"
-        *ngFor="let movies of movies">
-        <div>
+        >
+        <div ([*ngIf])=activated>
+          <!-- {{fixMovie()}} -->
           <img 
-          src="{{movies.imgPath}}"
-          alt="{{movies.name}}"
+          src="{{movie.imageSrc}}"
+          alt="{{movie.imageAlt}}"
           class="img-responsive"
           style="max-height:80px;">
-            <h5 class="list-group-item-heading" align="center">{{movies.name}}</h5>
+            <h5 class="list-group-item-heading" align="center">{{movie.imageAlt}}</h5>
+            <h5 class="list-group-item-heading" align="center">{{movie.releaseDate}}</h5>
           
     </div> 
    </div> 
@@ -61,6 +63,7 @@
               <label for="spoilers">no</label><br />
             </div>
             <input type="submit" value="Submit">
+            <input type="submit" value="Cancel" (click)="revertback()">
           </div>
         </form>
       </div>

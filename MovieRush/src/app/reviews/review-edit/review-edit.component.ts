@@ -1,19 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { SubjectSubscription } from 'rxjs/internal-compatibility';
+import { MovieService } from 'src/app/shared/movie.service';
 import { Movie } from '../../shared/movie.model';
+import { reviewSerivce } from '../reviews.service';
 @Component({
   selector: 'app-review-edit',
   templateUrl: './review-edit.component.html',
   styleUrls: ['./review-edit.component.css']
 })
 export class ReviewEditComponent implements OnInit {
-  movies:Movie[]=[
-    new Movie('Dunkrik','https://www.hnldesign.nl/wp-content/uploads/2020/08/resized/1920/0/90/0/usm/Dunkirk-Poster-by-hnldesign.jpg')
-  ]
+  id:number;
+  movie:Movie;
   currentRate=0;
-  constructor() { }
+  @Input()activated=false;
+  subscription:Subscription;
+  constructor(private router:Router,
+    private route:ActivatedRoute,
+    private movieservice:MovieService,private reviewservice:reviewSerivce)      
+     { }
 
   ngOnInit(): void {
-    
+    this.subscription=this.reviewservice.movieSelected
+      .subscribe(
+        (movie:Movie)=>{
+         this.movie=movie;
+  
+        }
+      )
+  }
+  revertback(){
+    this.router.navigate(['../'],{relativeTo:this.route})
+  }
+  ngOnDestroy(){
+    if(this.subscription){
+      this.subscription.unsubscribe();
+    }
   }
 
 }
