@@ -1,11 +1,6 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import { Movie } from 'src/app/shared/movie.model';
 import { MovieService } from 'src/app/shared/movie.service';
-interface moviePoster{
-  imageSrc:string;
-  imageAlt:string;
-
-}
 
 @Component({
   selector: 'app-movie-list',

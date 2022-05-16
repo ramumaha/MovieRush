@@ -22,13 +22,11 @@
             <span class="fa fa-search"></span>
         <input type="checkbox" id="btn">
         </li>
-               <li><a href="#">HOME</a></li>
-               <li>
+               <li routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/home">HOME</a></li>
+               <li routerLinkActive="selected"  [routerLinkActiveOptions]="{exact: true}" >
                <img src="bookmark.png" class="bookmark" alt="reel" />
-               <a href="#">WATCHLIST</a></li>
-               
-               <li><a href="#">SIGN IN</a>
-               
+               <a  routerLink="/watchlist" >WATCHLIST</a></li>
+               <li routerLinkActive="selected"  [routerLinkActiveOptions]="{exact: true}"><a routerLink="/signin">SIGN IN</a>
                <ul class="btn-group"
                appDropDown>
                    <li class="user">SIGNOUT</li>
@@ -38,12 +36,12 @@
             </li> 
                <li> 
                 <input type="checkbox" id="btn-1">
-                <a href="#" >EN</a>
+                <a>EN</a>
                    <img src="down-arrow.png" class="drop-down" alt="drop-down" />  
                    <ul>
-                   <li><a href="#">FR</a></li>
-                   <li><a href="#">DE</a></li>
-                   <li><a href="#">PT</a></li>
+                   <li><a>FR</a></li>
+                   <li><a>DE</a></li>
+                   <li><a>PT</a></li>
                 </ul>
                </li>
             </ul>

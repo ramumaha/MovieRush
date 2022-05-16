@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit,Output } from '@angular/core';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { Movie } from '../shared/movie.model';
+import { MovieService } from '../shared/movie.service';
+import { reviewSerivce } from './reviews.service';
 
 @Component({
   selector: 'app-reviews',
@@ -6,13 +10,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
-  max = 5;
-  rate = 2;
+  currentRate = 8;
   isReadonly = false;
-  constructor() { }
+  movie:Movie;
+  id:number;
+  constructor(private route:ActivatedRoute,private movieservice:MovieService,
+    private router:Router,private reviewservice:reviewSerivce) {
+    
+   }
 
 
   ngOnInit(): void {
+    this.id=+this.route.snapshot.params['id'];
+    this.movie=this.movieservice.getMovieById(this.id);
+  }
+
+  onCLick(){
+    this.reviewservice.movieSelected.next(this.movie);
+    this.navigate();
+
+  }
+  
+  navigate(){
+  
+    this.router.navigate(['review'],{relativeTo:this.route})
   }
 
 }

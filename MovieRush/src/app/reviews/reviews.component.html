@@ -10,11 +10,11 @@
     <div class="cols">
         <div class="row-md-4">
             <br>
-           rating comes here
+            <ngb-rating [(rate)]="currentRate"></ngb-rating>
           <hr>
         </div>
         <div class="row-md-4">
-            <button>Add your review</button>
+            <button (click)="onCLick()">Add your review</button>
             <hr>
 
             
@@ -24,21 +24,14 @@
         <div class="row-md-3">
             <br>
             Starring
-            <ul>
-                <li>Leonardo DiCaprio</li>
-                <li>Robert Downey Jr</li>
-                <li>Tom Hanks</li>
-                <li>Dwayne Johnson</li>
-                <li>Tom Cruise</li>
-                <li>Brad Pitt</li>
-            </ul>
+           <div *ngFor="let castEl of movie.cast">
+                {{castEl}}
+           </div>
 
             <hr>
            
         </div>
     
-    </div>
-    <!-- <app-review-edit></app-review-edit> -->
-    
+    </div>    
 </body>
 </html>

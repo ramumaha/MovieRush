@@ -9,6 +9,7 @@ export class HeaderConponent{
    @Output()  notify:EventEmitter<string>=new EventEmitter();
 
    onSelect(select:string){
+       console.log(select);
        this.notify.emit(select);
    }
 
