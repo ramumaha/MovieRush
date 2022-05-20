@@ -17,6 +17,7 @@ import {MovieService} from './shared/movie.service';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { reviewSerivce } from './reviews/reviews.service';
 import { FormsModule } from '@angular/forms';
+import { SafePipe } from './shared/safepipe.pipe.';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     DropDownDirective,
     WatchlistComponent,
+    SafePipe
     
   ],
   imports: [
