@@ -29,12 +29,22 @@
         <hr />
       </div>
       <div class="row-md-4">
-        <form>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <div class="cols">
+            <div class="row-sm-5 form-group">
+              <input
+               type="username" 
+               id="username"
+               placeholder="enter your name"
+               name="username"
+               required
+             ngModel>
+
+              </div>
             <div class="row-sm-5 form-group">
               <label for="rating">YOUR RATING</label>
               <br />
-              <ngb-rating [max]="10" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
+              <ngb-rating [max]="10" [(rate)]="currentRate" [readonly]="false" required></ngb-rating>
               <p>Rating:{{currentRate}}</p>
             </div>
             <div class="row-sm-5 form-group">
@@ -44,6 +54,9 @@
                 id="headline"
                 class="form-control"
                 placeholder="Write a headline for your review"
+                name="headline"
+                ngModel
+                required
               />
             </div>
 
@@ -53,16 +66,28 @@
                 rows="10"
                 cols="23"
                 placeholder="write your review here"
+                name="review"
+                ngModel
+                required
               ></textarea>
             </div>
             <div class="row-sm-5 form-group">
               <label for="spoilers">Does your review contain spoilers?</label>
-              <input type="radio" id="html" name="spoilers" />
+              <input 
+              type="radio"
+               id="html"
+               name="spoilers" 
+               [value]="'yes'"
+               ngModel/>
               <label for="spoilers">yes</label>
-              <input type="radio" name="spoilers" />
+              <input 
+              type="radio"
+               name="spoilers"
+               [value]="'no'"
+               ngModel />
               <label for="spoilers">no</label><br />
             </div>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" [disabled]="!f.valid">
             <input type="submit" value="Cancel" (click)="revertback()">
           </div>
         </form>

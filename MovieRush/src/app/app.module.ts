@@ -9,13 +9,14 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { DropDownDirective} from './shared/dropdown.directive';
 import {MovieService} from './shared/movie.service';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { reviewSerivce } from './reviews/reviews.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,14 +30,17 @@ import { reviewSerivce } from './reviews/reviews.service';
     ReviewEditComponent,
     HomeComponent,
     DropDownDirective,
-    WatchlistComponent
+    WatchlistComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     IvyCarouselModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    NgbModule
+  
   ],
   providers: [MovieService,reviewSerivce],
   bootstrap: [AppComponent]
