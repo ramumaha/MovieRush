@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { SubjectSubscription } from 'rxjs/internal-compatibility';
 import { MovieService } from 'src/app/shared/movie.service';
 import { Movie } from '../../shared/movie.model';
+import { Review } from '../review.model';
 import { reviewSerivce } from '../reviews.service';
 @Component({
   selector: 'app-review-edit',
@@ -11,6 +12,7 @@ import { reviewSerivce } from '../reviews.service';
   styleUrls: ['./review-edit.component.css']
 })
 export class ReviewEditComponent implements OnInit {
+  @ViewChild('f')rForm:NgForm
   id:number;
   movie:Movie;
   currentRate=0;
@@ -28,9 +30,12 @@ export class ReviewEditComponent implements OnInit {
          this.movie=movie;
   
         }
-      )
+      );
   }
   revertback(){
+    // alert('Do you want to delete you review?')
+
+    this.rForm.reset();
     this.router.navigate(['../'],{relativeTo:this.route})
   }
   ngOnDestroy(){
@@ -38,5 +43,16 @@ export class ReviewEditComponent implements OnInit {
       this.subscription.unsubscribe();
     }
   }
+
+  onSubmit(form:NgForm){
+    const value=form.value;
+    const newReview=new Review(this.movie.imageAlt,
+      this.currentRate,
+      value.headline,value.review,
+      value.username,value.spoilers);
+      this.reviewservice.addReview(newReview);
+      form.reset();
+  }
+
 
 }

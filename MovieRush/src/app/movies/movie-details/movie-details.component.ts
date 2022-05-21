@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute,Params } from '@angular/router';
+import { Review } from 'src/app/reviews/review.model';
+import { reviewSerivce } from 'src/app/reviews/reviews.service';
 import { Movie } from 'src/app/shared/movie.model';
 import { MovieService } from 'src/app/shared/movie.service';
 
@@ -12,9 +14,11 @@ export class MovieDetailsComponent implements OnInit {
    @Input()id:number;
    @Input() movie:Movie;
    isActive:boolean;
+   reviews:Review[]=[];
 
-
-  constructor(private route:ActivatedRoute,private movieservice:MovieService ) { }
+  constructor(private route:ActivatedRoute,
+    private movieservice:MovieService,
+    private reviewservice:reviewSerivce ) { }
 
   ngOnInit(): void {
     this.route.params
@@ -24,6 +28,14 @@ export class MovieDetailsComponent implements OnInit {
         this.movie=this.movieservice.getMovieById(this.id);
       }
     )
+    this.reviewservice.reviewadded.subscribe(
+      (reviews:Review[])=>{
+        this.reviews=reviews;
+
+      }
+      );
+    this.reviews=this.reviewservice.displayReview();
+
    
   }
   toggleColor(){
