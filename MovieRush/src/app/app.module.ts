@@ -18,6 +18,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { reviewSerivce } from './reviews/reviews.service';
 import { FormsModule } from '@angular/forms';
 import { SafePipe } from './shared/safepipe.pipe.';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SafePipe } from './shared/safepipe.pipe.';
     IvyCarouselModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   
   ],
   providers: [MovieService,reviewSerivce],
