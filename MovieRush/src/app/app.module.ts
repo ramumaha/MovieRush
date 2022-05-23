@@ -21,6 +21,12 @@ import { SafePipe } from './shared/safepipe.pipe.';
 import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import {FlashMessagesModule} from 'angular2-flash-messages';
+import { AuthService } from './register/auth.service';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -47,11 +53,11 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    FlashMessagesModule
+    FlashMessagesModule.forRoot()
 
   
   ],
-  providers: [MovieService,reviewSerivce],
+  providers: [MovieService,reviewSerivce,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
