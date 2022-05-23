@@ -92,7 +92,6 @@
 .submit-btn{
     width:85%;
     padding:10px 30px;
-    cursor:pointer;
     display:block;
     margin:auto;
     background: linear-gradient(to right,#ff105f,#ffad06);
@@ -119,3 +118,6 @@ span{
     left:450px;
 }
 
+.ng-invalid input{
+    cursor:auto;
+}

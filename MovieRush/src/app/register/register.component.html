@@ -7,6 +7,7 @@
     <title>Login</title>
 </head>
 <body>
+    <flash-messages></flash-messages>
     <div class="form">
         <div class="form-box">
         <div class="button-box">
@@ -19,18 +20,55 @@
         <i class="fa fa-google fa-fw"></i>
         <i class="fa fa-facebook fa-fw"></i>
     </div>
-    <form  id="login" class="input-group"#loginf>
-        <input type="text" class="input-field" placeholder="User Id" required>
-        <input type="password" class="input-field" placeholder="Password" required>
+    <form  (submit)="onLogin(lf)" id="login" class="input-group" #loginf #lf="ngForm" >
+        <input type="text" 
+        class="input-field"
+         placeholder="Username" 
+         ngModel
+          #username="ngModel" 
+           name="usrname" 
+         required>
+        <input type="password"
+         class="input-field" 
+         placeholder="Password" 
+         ngModel
+          #password="ngModel" 
+          name="password" 
+         required>
+         <div *ngIf="lf.invalid && lf.touched">Fill all the details</div>
         <input type="checkbox" class="check-box"><span>Remember Password</span>
-        <button type="submit" class="submit-btn">Log In</button>
+        <button 
+        class="submit-btn" [disabled]="lf.invalid" >Log In</button>
     </form>
-    <form  id="register" class="input-group" #registerf>
-        <input type="text" class="input-field" placeholder="User Id" required>
-        <input type="email" class="input-field" placeholder="Email Id" required>
-        <input type="password" class="input-field" placeholder="Password" required>
+
+
+
+
+
+
+
+    <form (submit)="onRegisterSubmit(rf)" id="register" class="input-group" #registerf #rf="ngForm">
+        <input type="text" 
+        class="input-field"
+         placeholder="Username" 
+         name="username"
+         ngModel
+         required>
+        <input type="email"
+         class="input-field" 
+         placeholder="Email Id" 
+         ngModel #email="ngModel" 
+          name="email" 
+         required>
+        <input type="password"
+         class="input-field" 
+         placeholder="Password"
+         name="password"
+         ngModel
+          required>
+          <div *ngIf="rf.invalid && rf.touched">Fill all the details</div>
         <input type="checkbox" class="check-box"><span>I agree to the terms & conditions</span>
-        <button type="submit" class="submit-btn">Register</button>
+        <button type="submit" class="submit-btn" [disabled]="rf.invalid">Register</button>
     </form>
     
 </div>

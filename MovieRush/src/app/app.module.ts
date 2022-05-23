@@ -19,6 +19,8 @@ import { reviewSerivce } from './reviews/reviews.service';
 import { FormsModule } from '@angular/forms';
 import { SafePipe } from './shared/safepipe.pipe.';
 import {HttpClientModule} from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import {FlashMessagesModule} from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     DropDownDirective,
     WatchlistComponent,
-    SafePipe
+    SafePipe,
+    ProfileComponent
     
   ],
   imports: [
@@ -43,7 +46,9 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FlashMessagesModule
+
   
   ],
   providers: [MovieService,reviewSerivce],
