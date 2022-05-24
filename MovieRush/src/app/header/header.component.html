@@ -32,7 +32,7 @@
                *ngIf="status"
                >
                    <li class="user"><a (click)="onLogOutClick()" href="#">SIGNOUT</a></li>
-                   <li class="user">PROFILE</li>
+                   <li  class="user" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/profile">PROFILE</a></li>
                </ul>
             </li> 
                <li> 

@@ -52,7 +52,6 @@ export class RegisterComponent implements AfterViewInit {
         password:form.value.password
       }
       this.authService.authenticateUser(user).subscribe(data=>{
-        console.log(data);
         if(data.body['success']){
           this.authService.signin.next(true);
           this.authService.storeUserData(data.body['token'],data.body['user']);

@@ -120,7 +120,7 @@ nav ul li ul .user:hover{
 nav ul li ul .user{
   position:relative;
   margin:0px;
-  width: 90px;
+  width: 100px;
   float:none;
   font-size: large;
   display:list-item;

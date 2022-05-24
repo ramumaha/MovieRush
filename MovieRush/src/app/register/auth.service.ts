@@ -9,6 +9,7 @@ export class AuthService{
     user:any;
     signedin=false;
     signin=new Subject<Boolean>();
+    response:any;
 
     constructor(private http:HttpClient){}
 
@@ -31,11 +32,27 @@ export class AuthService{
           }).pipe(map((res:HttpResponse<JSON>)=> res));
     }
 
+    getProfile(){
+        this.loadToken();
+        return this.http
+        .get('http://localhost:3000/users/profile', {
+    headers: new HttpHeaders().set('Authorization', this.authToken)
+    
+  }).pipe(map((res:HttpResponse<Text>)=> res));        
+
+    }
+
     storeUserData(token,user){
         localStorage.setItem('id_token',token);
         localStorage.setItem('user',JSON.stringify(user));
         this.authToken=token;
         this.user=user;
+
+    }
+
+    loadToken(){
+        const token=localStorage.getItem('id_token');
+        this.authToken=token;
 
     }
 

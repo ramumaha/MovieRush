@@ -13,11 +13,10 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'signin',component:RegisterComponent},
   {path:'watchlist',component:WatchlistComponent},
+  {path:'profile',component:ProfileComponent},
   {path:':id',component:MovieDetailsComponent,children:[
     {path:'',component:ReviewsComponent},
-    {path:'review',component:ReviewEditComponent},
-  {path:'profile',component:ProfileComponent} 
-    
+    {path:'review',component:ReviewEditComponent},  
     
   ]}
   

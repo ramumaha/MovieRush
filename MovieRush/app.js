@@ -8,6 +8,7 @@ const config=require('./config/database');
 const session=require('express-session');
 const cookiePrser=require('cookie-parser');
 
+
 //connect to db
 mongoose.connect(config.database);
 
