@@ -26,6 +26,15 @@ export class HeaderConponent implements OnInit {
        this.notify.emit(select);
    }
 
+   navigateWatchlist(){
+       if(!this.status){
+        this.flashMessage.show("Login to access",{cssClass:'alert-danger',timeout:4000});
+           this.router.navigate(['/signin']);
+       }else{
+           this.router.navigate(['/watchlist']);
+       }
+   }
+
    onLogOutClick(){
        this.authService.logout();
        this.flashMessage.show('You are logged out',{
@@ -33,7 +42,6 @@ export class HeaderConponent implements OnInit {
            timeout:3000
        });
        this.router.navigate(['/signin']);
-
 
    }
 
