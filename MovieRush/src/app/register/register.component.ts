@@ -65,11 +65,11 @@ export class RegisterComponent implements AfterViewInit {
 
       if(data.body['success']){
         this.flashMessage.show('You are now registered and can login',{cssClass:'alert-success',timeout:3000});
-        this.router.navigate(['/home']);
+        this.router.navigate(['/signin']);
 
       }else{
         this.flashMessage.show('Something went wrong',{cssClass:'alert-danger',timeout:3000});
-        this.router.navigate(['/register']);
+        this.router.navigate(['/signin']);
       }
     })
 
