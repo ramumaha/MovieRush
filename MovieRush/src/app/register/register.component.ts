@@ -16,10 +16,6 @@ export class RegisterComponent implements AfterViewInit {
   registerForm:HTMLFormElement;
   buttonDiv:HTMLDivElement;
 
-
-
-  
-
   
   
   constructor(
@@ -51,7 +47,23 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   onLogin(form:NgForm){
-    console.log(form);
+      const user={
+        username:form.value.username,
+        password:form.value.password
+      }
+      this.authService.authenticateUser(user).subscribe(data=>{
+        console.log(data);
+        if(data.body['success']){
+          this.authService.signin.next(true);
+          this.authService.storeUserData(data.body['token'],data.body['user']);
+          this.flashMessage.show("Login Successful",{cssClass:'alert-danger',timeout:4000});
+          this.router.navigate(['/home']);
+
+        }else{
+          this.flashMessage.show(data.body['msg'],{cssClass:'alert-danger',timeout:4000})
+        }
+
+      });
 
   }
 

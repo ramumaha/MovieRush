@@ -28,10 +28,12 @@
                <a  routerLink="/watchlist" >WATCHLIST</a></li>
                <li routerLinkActive="selected"  [routerLinkActiveOptions]="{exact: true}"><a routerLink="/signin">SIGN IN</a>
                <ul class="btn-group"
-               appDropDown>
+               appDropDown
+               *ngIf="status"
+               
+               >
                    <li class="user">SIGNOUT</li>
-                   <li class="user">WISHLIST</li>
-                   <li class="user">REVIEWS</li>
+                   <li class="user">PROFILE</li>
                </ul>
             </li> 
                <li> 
