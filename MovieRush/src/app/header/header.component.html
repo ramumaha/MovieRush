@@ -30,9 +30,8 @@
                <ul class="btn-group"
                appDropDown
                *ngIf="status"
-               
                >
-                   <li class="user">SIGNOUT</li>
+                   <li class="user"><a (click)="onLogOutClick()" href="#">SIGNOUT</a></li>
                    <li class="user">PROFILE</li>
                </ul>
             </li> 

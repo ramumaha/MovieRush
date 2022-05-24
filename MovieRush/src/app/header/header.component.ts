@@ -1,4 +1,6 @@
 import { Component,EventEmitter,Input,Output,OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { FlashMessagesService } from "angular2-flash-messages";
 import { AuthService } from "../register/auth.service";
 @Component({
     selector:'header-component',
@@ -8,20 +10,31 @@ import { AuthService } from "../register/auth.service";
 export class HeaderConponent implements OnInit {
    @Output()  notify:EventEmitter<string>=new EventEmitter();
    status:Boolean=false;
-   constructor(private authService:AuthService){}
+   constructor(
+    private flashMessage:FlashMessagesService,
+    private authService:AuthService,
+    private router:Router
+    ){}
     ngOnInit(): void {
         this.authService.signin.subscribe(state=>{
-            this.status=state;
-            console.log(this.status);
-
-            
+            this.status=state; 
         });
-        console.log(this.status);
         
     }
    onSelect(select:string){
        console.log(select);
        this.notify.emit(select);
+   }
+
+   onLogOutClick(){
+       this.authService.logout();
+       this.flashMessage.show('You are logged out',{
+           cssClass:'alert-success',
+           timeout:3000
+       });
+       this.router.navigate(['/signin']);
+
+
    }
 
 }
