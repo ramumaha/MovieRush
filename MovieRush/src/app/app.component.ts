@@ -7,9 +7,4 @@ import { Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'MovieRush';
-  active='home';
-  changePage(message:string){
-    this.active=message;
-    console.log(message);
-  }
 }
