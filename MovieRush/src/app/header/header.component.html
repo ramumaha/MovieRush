@@ -17,9 +17,8 @@
         <span class="fa fa-bars"></span>
     </label>
        <ul>  
-           <li class="search-icon">
-            <input type="search" placeholder="search">
-            <span class="fa fa-search"></span>
+           <li class="search-icon" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/search"> <span class="fa fa-search"></span></a>
         <input type="checkbox" id="btn">
         </li>
                <li routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/home">HOME</a></li>

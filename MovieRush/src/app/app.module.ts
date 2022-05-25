@@ -22,6 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import { AuthService } from './register/auth.service';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './search/search.service';
 
 
 
@@ -42,7 +44,8 @@ import { AuthService } from './register/auth.service';
     DropDownDirective,
     WatchlistComponent,
     SafePipe,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent
     
   ],
   imports: [
@@ -57,7 +60,7 @@ import { AuthService } from './register/auth.service';
 
   
   ],
-  providers: [MovieService,reviewSerivce,AuthService],
+  providers: [MovieService,reviewSerivce,AuthService,SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
