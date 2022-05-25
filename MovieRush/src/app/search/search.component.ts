@@ -29,6 +29,8 @@ export class SearchComponent implements OnInit {
   isSearching:Boolean;
   movieDetails:any;
   name:string;
+  fundClassDetailsViewModelData = [];
+  transpose = true;
 
   constructor(
     private searchService: SearchService,
@@ -49,7 +51,9 @@ export class SearchComponent implements OnInit {
     ).subscribe((text:string)=>{
       this.isSearching=true;
       this.searchService.searchGetCall(text).subscribe((res)=>{
-        console.log('res',res);
+        // console.log('res',res);
+        this.movieDetails=res['Search'];
+        console.log(this.movieDetails);
         this.isSearching=false;
         this.apiResponse=false;
       }),(err)=>{
@@ -59,6 +63,9 @@ export class SearchComponent implements OnInit {
     });
    
    
+  }
+  toggleTranspose() {
+    this.transpose = !this.transpose;
   }
 
 

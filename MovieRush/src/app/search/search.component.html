@@ -1,5 +1,3 @@
-<div class="background">
-</div>
 <div class="box">
     <input class="box" align="center" type="text" 
     #movieSearchInput class="form-control"
@@ -29,9 +27,9 @@
         </div>
     </ng-container>
     <ng-template #elseTemplate>
-        <div class="col-3" *ngFor="let movie of apiResponse['Search']">
+        <!-- <div class="col-3" *ngFor="let movie of apiResponse['Search']"> -->
 
-            <div class="card" style="margin:5px;">
+            <!-- <div class="card" style="margin:5px;">
               <img class="card-img-top" src="{{movie['Poster']}}">
               <mat-card>
                 <div class="card-body">
@@ -41,12 +39,43 @@
                   <button mat-raised-button color="primary" (click)="getDetails(this.movie)">Details</button>
                 </div>
               </mat-card>
-              
-            </div>
-          </div>
+            </div> -->
+          <!-- </div> -->
+          
   
         </ng-template>
-      </div>
-    </div>
+        <div class="posterTable">
+            <br />
+            <table
+              class="fundClassesTable"
+              [class.transpose]="transpose"
+              id="toggled-element"
+            >
+              <tr *ngFor="let f of movieDetails;let i=index">
+                <td>
+                  <a [routerLink]="['/',i]">
+                    <div class="poster col-sm-12 links">
+                      <div class="card">
+                        <div class="poster">
+                          <img [src]="f['Poster']" class="poster-image" />
+                        </div>
+                        <img src="../../assets/heart.svg" class="likes" /><span
+                          class="rating"
+                          >Add to wishlist</span
+                        >
+                        <br>
+                        <br>
+                      </div>
+                     
+                        <!-- <span class="details"> <img class="details" src="{{f['Poster']}}"></span> -->
+                      <br>
+                      <span class="genere">Animation/Action</span>
+                    </div>
+                  </a>
+                </td>
+              </tr>
+              <br />
 
-</div>
+
+
+
