@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { MovieService } from 'src/app/shared/movie.service';
+// import { MovieService } from 'src/app/shared/movie.service';
 import { Movie } from '../../shared/movie.model';
 import { Review } from '../review.model';
 import { reviewSerivce } from '../reviews.service';
@@ -20,7 +20,7 @@ export class ReviewEditComponent implements OnInit {
   subscription:Subscription;
   constructor(private router:Router,
     private route:ActivatedRoute,
-    private movieservice:MovieService,private reviewservice:reviewSerivce)      
+    private reviewservice:reviewSerivce)      
      { }
 
   ngOnInit(): void {

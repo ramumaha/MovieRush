@@ -2,8 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute,Params } from '@angular/router';
 import { Review } from 'src/app/reviews/review.model';
 import { reviewSerivce } from 'src/app/reviews/reviews.service';
+import { SearchService } from 'src/app/search/search.service';
 import { Movie } from 'src/app/shared/movie.model';
-import { MovieService } from 'src/app/shared/movie.service';
+
 
 @Component({
   selector: 'app-movie-details',
@@ -11,23 +12,24 @@ import { MovieService } from 'src/app/shared/movie.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-   @Input()id:number;
-   @Input() movie:Movie;
+   @Input()id:any;
+   @Input() movie:any;
    isActive:boolean;
    reviews:Review[]=[];
 
   constructor(private route:ActivatedRoute,
-    private movieservice:MovieService,
-    private reviewservice:reviewSerivce ) { }
+    private reviewservice:reviewSerivce,
+    private searchservice:SearchService ) { }
 
   ngOnInit(): void {
     this.route.params
     .subscribe(
       (params:Params)=>{
-        this.id=+params['id'];
-        this.movie=this.movieservice.getMovieById(this.id);
+        this.id=params['id'];
+     
       }
     )
+    this.loadMovie();
     this.reviewservice.reviewadded.subscribe(
       (reviews:Review[])=>{
         this.reviews=reviews;
@@ -38,6 +40,17 @@ export class MovieDetailsComponent implements OnInit {
 
    
   }
+  loadMovie(){
+    this.searchservice.getDetails(this.id).subscribe((data)=>{
+      this.movie=data;
+      console.log(this.movie);
+    }),(err)=>{
+      console.log("error");
+    }
+
+  }
+
+
   toggleColor(){
     this.isActive=!this.isActive;    
 

@@ -2,7 +2,7 @@ export class Movie{
    
     public imageSrc:string;
     public imageAlt:string;
-    public id?:number;
+    public id?:string;
     public movieGenre?:string;
     public desc?:string;
     public trailerlink?:string;
@@ -14,7 +14,7 @@ export class Movie{
     public writer?:string;
 
 
-    constructor(name:string,imgPath:string,id?:number,
+    constructor(name:string,imgPath:string,id?:string,
         movieGenre?:string,desc?:string,
         trailerlink?:string,cast?:string[],
         releaseDate?:string,country?:string,director?:string,

@@ -1,5 +1,4 @@
 import { Component, OnInit ,Input} from '@angular/core';
-import { Movie } from 'src/app/shared/movie.model';
 import { MovieService } from 'src/app/shared/movie.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { MovieService } from 'src/app/shared/movie.service';
   
 })
 export class MovieListComponent implements OnInit {
-  @Input() posters:Movie[]=[];
+  @Input() posters=[];
   fundClassDetailsViewModelData = [];
   transpose = true;
   constructor(private movieservice:MovieService ){}

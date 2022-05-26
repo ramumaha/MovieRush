@@ -8,11 +8,11 @@
     <th class="tagline">What to watch?</th>
     <tr *ngFor="let f of posters;let i=index">
       <td>
-        <a [routerLink]="['/',i]">
+        <a [routerLink]="['/',f['imdbID']]">
           <div class="poster col-sm-12 links">
             <div class="card">
               <div class="poster">
-                <img [src]="f.imageSrc" class="poster-image" />
+                <img [src]="f['Poster']" class="poster-image" />
               </div>
               <img src="../../assets/heart.svg" class="likes" /><span
                 class="rating"
@@ -21,9 +21,9 @@
               <br>
               <br>
             </div>
+            <br>
               <span class="details">{{ f.imageAlt }}</span>
             <br>
-            <span class="genere">Animation/Action</span>
           </div>
         </a>
       </td>

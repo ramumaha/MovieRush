@@ -1,26 +1,26 @@
-<h1>{{ movie.imageAlt }}</h1>
-<span class="age">16+</span><span> {{ movie.movieGenre }}</span>
+<h1>{{ movie.Title }}</h1>
+<span class="age">{{movie.Rated}}</span><span> {{ movie.Genre }}</span>
 <h3>About the Film</h3>
 <br />
 <table class="about">
   <div class="heading">
     <tr>Date
-    <td>    {{movie.releaseDate}}</td>
+    <td>    {{movie.Released}}</td>
 </tr>
     <tr>Country
-        <td>    {{movie.country}}</td>
+        <td>    {{movie.Country}}</td>
     </tr>
     <tr>Genere
-        <td>    {{movie.movieGenre}}</td>
+        <td>    {{movie.Genre}}</td>
     </tr>
     <tr>Director
-        <td>    {{movie.director}}</td>
+        <td>    {{movie.Director}}</td>
     </tr>
     <tr>Writers
-        <td>    {{movie.writer}}</td>
+        <td>    {{movie.Writer}}</td>
     </tr>
     <tr>Time
-        <td>    {{movie.time}}</td>
+        <td>    {{movie.Runtime}}</td>
     </tr>
   </div>
 </table>
@@ -32,6 +32,6 @@
 <div *ngIf="show">
     <div class="box box-down orange">
         <h4>Storyline</h4>
-        <p>{{movie.desc}}</p>
+        <p>{{movie.Plot}}</p>
         </div>
 </div>

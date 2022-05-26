@@ -13,7 +13,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { DropDownDirective} from './shared/dropdown.directive';
-import {MovieService} from './shared/movie.service';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { reviewSerivce } from './reviews/reviews.service';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +23,7 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 import { AuthService } from './register/auth.service';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './search/search.service';
+import { MovieService } from './shared/movie.service';
 
 
 

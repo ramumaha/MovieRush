@@ -53,7 +53,7 @@
             >
               <tr *ngFor="let f of movieDetails;let i=index">
                 <td>
-                  <a [routerLink]="['/',i]">
+                  <a [routerLink]="['/',f.imdbID]">
                     <div class="poster col-sm-12 links">
                       <div class="card">
                         <div class="poster">
@@ -65,9 +65,10 @@
                         >
                         <br>
                         <br>
-                      </div>
-                     
-                        <!-- <span class="details"> <img class="details" src="{{f['Poster']}}"></span> -->
+                        <span class="details">{{ f['Title'] }}</span>
+                        <br>
+                        <br>
+                      </div>                       
                       <br>
                       <span class="genere">Animation/Action</span>
                     </div>

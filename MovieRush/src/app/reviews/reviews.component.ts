@@ -1,7 +1,7 @@
 import { Component, Input, OnInit,Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../shared/movie.model';
-import { MovieService } from '../shared/movie.service';
+// import { MovieService } from '../shared/movie.service';
 import { Review } from './review.model';
 import { reviewSerivce } from './reviews.service';
 
@@ -17,7 +17,7 @@ export class ReviewsComponent implements OnInit {
   id:number;
   reviews:Review[];
   reviewPresent=false;
-  constructor(private route:ActivatedRoute,private movieservice:MovieService,
+  constructor(private route:ActivatedRoute,
     private router:Router,private reviewservice:reviewSerivce) {
     
    }
@@ -25,7 +25,7 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=+this.route.snapshot.params['id'];
-    this.movie=this.movieservice.getMovieById(this.id);
+    // this.movie=this.movieservice.getMovieById(this.id);
   
   }
 

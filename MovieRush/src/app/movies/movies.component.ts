@@ -7,7 +7,7 @@ import { Movie } from '../shared/movie.model';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  @Input() movie:Movie;
+  @Input() movie:any;
   constructor() { }
   show=false;
   ngOnInit(): void {
