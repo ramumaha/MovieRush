@@ -1,7 +1,6 @@
 import { of } from "rxjs";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { share } from 'rxjs/operators'
 const APIKEY="916ed1a0";
 const PARAMS= new HttpParams({
   fromObject:{
@@ -26,7 +25,7 @@ export class SearchService{
         return this.httpClient.get('http://www.omdbapi.com/?s=' + term + '&apikey=' + APIKEY, { params: PARAMS.set('search', term) });
       }
 
-      getDetails(imdbID: string){        
+      getDetails(imdbID: string){      
         return this.httpClient.get('http://www.omdbapi.com/?i=' + imdbID + '&apikey=' + APIKEY, { params: PARAMS.set('search', imdbID) });
        
         }

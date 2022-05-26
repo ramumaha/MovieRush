@@ -3,7 +3,6 @@ import { ActivatedRoute,Params } from '@angular/router';
 import { Review } from 'src/app/reviews/review.model';
 import { reviewSerivce } from 'src/app/reviews/reviews.service';
 import { SearchService } from 'src/app/search/search.service';
-import { Movie } from 'src/app/shared/movie.model';
 
 
 @Component({
@@ -43,7 +42,7 @@ export class MovieDetailsComponent implements OnInit {
   loadMovie(){
     this.searchservice.getDetails(this.id).subscribe((data)=>{
       this.movie=data;
-      console.log(this.movie);
+      this.searchservice.movieDetails=data;
     }),(err)=>{
       console.log("error");
     }
