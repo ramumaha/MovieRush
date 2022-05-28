@@ -4,7 +4,6 @@ const User=require('../models/user');
 const passport=require('passport');
 const jwt=require('jsonwebtoken');
 const config=require('../config/database');
-let usersinged;
 
 //register
 
