@@ -63,7 +63,7 @@ module.exports.addmovie=function(id,movie,callback){
            if(!err){
              User.updateOne(
                  {"_id":doc.id},
-                {$push:{"watchlist":movie}}
+                {$addToSet:{"watchlist":movie}}
          
             ).then((obj)=>{
                 callback(obj.acknowledged);
@@ -86,7 +86,6 @@ module.exports.removeMovie=function(userid,movie,callback){
         if(!err){
             User.updateOne(
                 {"_id":doc.id},
-                
                 {$pull: { "watchlist": movie }}
             ).then((obj)=>{
                 console.log(obj);

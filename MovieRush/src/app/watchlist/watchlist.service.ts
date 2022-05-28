@@ -10,14 +10,22 @@ export class WatchListService{
         let headers=new HttpHeaders();
         headers.append('Content-Type','application/json');
        this.authservice.loadId();
-        console.log(this.http.post('http://localhost:3000/users/addmovie',{"id":this.authservice.id,"movie":movie}, {
-            headers: headers,
-            observe: 'response'
-          }).pipe(map((res:HttpResponse<JSON>)=> res)));
         return this.http.post('http://localhost:3000/users/addmovie',{"id":this.authservice.id,"movie":movie}, {
             headers: headers,
             observe: 'response'
           }).pipe(map((res:HttpResponse<JSON>)=> res));
+
+    }
+    
+    removemovie(movie){
+        let headers=new HttpHeaders();
+        headers.append('Content-Type','application/json');
+       this.authservice.loadId();
+        return this.http.post('http://localhost:3000/users/removemovie',{"id":this.authservice.id,"movie":movie}, {
+            headers: headers,
+            observe: 'response'
+          }).pipe(map((res:HttpResponse<JSON>)=> res));
+
 
     }
 }

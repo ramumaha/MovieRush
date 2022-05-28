@@ -4,6 +4,7 @@ import { Review } from 'src/app/reviews/review.model';
 import { reviewSerivce } from 'src/app/reviews/reviews.service';
 import { SearchService } from 'src/app/search/search.service';
 import { WatchListService } from 'src/app/watchlist/watchlist.service';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private route:ActivatedRoute,
     private reviewservice:reviewSerivce,
     private searchservice:SearchService,
-    private watchlistservice:WatchListService ) { }
+    private watchlistservice:WatchListService,
+    private flashMessage:FlashMessagesService ) { }
 
   ngOnInit(): void {
     this.route.params
@@ -56,10 +58,24 @@ export class MovieDetailsComponent implements OnInit {
     this.isActive=!this.isActive; 
     if(this.isActive){
       this.watchlistservice.addmovie(this.movie).subscribe(data=>{
-        console.log(data);
+        if(data.ok){
+          this.flashMessage.show("Movie Added",{cssClass:'alert-success',timeout:4000});
+        }else{
+          this.flashMessage.show("Error!!!Try later",{cssClass:'alert-danger',timeout:4000});
+        }
+        
       })
     }else{
-      
+      this.watchlistservice.removemovie(this.movie).subscribe(
+        data=>{
+          if(data.ok){
+            this.flashMessage.show("Movie Removed",{cssClass:'alert-success',timeout:4000});
+          }else{
+            this.flashMessage.show("Movie not found",{cssClass:'alert-danger',timeout:4000});
+          }
+          
+        }
+      )
     }
 
 
