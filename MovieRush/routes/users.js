@@ -79,4 +79,14 @@ router.post('/addmovie',(req,res)=>{
   })
 })
 
+//remove movie
+
+router.post('/removemovie',(req,res)=>{
+  User.removeMovie(req.body.id,req.body.movie,(status)=>{
+    if(status){
+      res.json({msg:'movie deleted successfully'})
+    }
+  })
+})
+
 module.exports=router;

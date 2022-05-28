@@ -80,3 +80,22 @@ module.exports.addmovie=function(id,movie,callback){
        });
    }
 }
+
+module.exports.removeMovie=function(userid,movie,callback){
+    User.findById(userid,(err,doc)=>{
+        if(!err){
+            User.updateOne(
+                {"_id":doc.id},
+                
+                {$pull: { "watchlist": movie }}
+            ).then((obj)=>{
+                console.log(obj);
+                callback(obj.acknowledged);
+            }).catch((err)=>{
+                console.log(err);
+
+            })
+
+        }
+    })
+}

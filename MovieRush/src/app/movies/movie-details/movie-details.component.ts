@@ -58,6 +58,8 @@ export class MovieDetailsComponent implements OnInit {
       this.watchlistservice.addmovie(this.movie).subscribe(data=>{
         console.log(data);
       })
+    }else{
+      
     }
 
 
