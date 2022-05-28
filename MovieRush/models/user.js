@@ -64,8 +64,7 @@ module.exports.addmovie=function(id,movie,callback){
              User.updateOne(
                  {"_id":doc.id},
                 {$push:{"watchlist":movie}}
-                // {upsert: true}
-              
+         
             ).then((obj)=>{
                 callback(obj.acknowledged);
 

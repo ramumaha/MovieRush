@@ -10,6 +10,7 @@ export class AuthService{
     signedin=false;
     signin=new Subject<Boolean>();
     response:any;
+    id:any;
 
     constructor(private http:HttpClient){}
 
@@ -54,6 +55,11 @@ export class AuthService{
         const token=localStorage.getItem('id_token');
         this.authToken=token;
 
+    }
+
+    loadId(){
+        this.id=JSON.parse(localStorage.getItem('user'));
+        this.id=this.id.id;
     }
 
     logout(){

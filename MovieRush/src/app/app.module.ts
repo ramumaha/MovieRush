@@ -24,6 +24,7 @@ import { AuthService } from './register/auth.service';
 import { SearchComponent } from './search/search.component';
 import { SearchService } from './search/search.service';
 import { MovieService } from './shared/movie.service';
+import { WatchListService } from './watchlist/watchlist.service';
 
 
 
@@ -60,7 +61,11 @@ import { MovieService } from './shared/movie.service';
 
   
   ],
-  providers: [MovieService,reviewSerivce,AuthService,SearchService],
+  providers: [MovieService,
+              reviewSerivce,
+              AuthService,
+              SearchService,
+              WatchListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

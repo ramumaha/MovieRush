@@ -3,6 +3,7 @@ import { ActivatedRoute,Params } from '@angular/router';
 import { Review } from 'src/app/reviews/review.model';
 import { reviewSerivce } from 'src/app/reviews/reviews.service';
 import { SearchService } from 'src/app/search/search.service';
+import { WatchListService } from 'src/app/watchlist/watchlist.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class MovieDetailsComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,
     private reviewservice:reviewSerivce,
-    private searchservice:SearchService ) { }
+    private searchservice:SearchService,
+    private watchlistservice:WatchListService ) { }
 
   ngOnInit(): void {
     this.route.params
@@ -51,7 +53,13 @@ export class MovieDetailsComponent implements OnInit {
 
 
   toggleColor(){
-    this.isActive=!this.isActive;    
+    this.isActive=!this.isActive; 
+    if(this.isActive){
+      this.watchlistservice.addmovie(this.movie).subscribe(data=>{
+        console.log(data);
+      })
+    }
+
 
   }
 
