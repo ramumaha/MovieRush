@@ -1,7 +1,8 @@
-import { Component, Input, OnInit,Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Movie } from '../shared/movie.model';
-import { MovieService } from '../shared/movie.service';
+import { SearchService } from '../search/search.service';
+
+
 import { Review } from './review.model';
 import { reviewSerivce } from './reviews.service';
 
@@ -13,11 +14,13 @@ import { reviewSerivce } from './reviews.service';
 export class ReviewsComponent implements OnInit {
   currentRate = 8;
   isReadonly = false;
-  movie:Movie;
+  movie:any;
+  cast:any;
   id:number;
   reviews:Review[];
   reviewPresent=false;
-  constructor(private route:ActivatedRoute,private movieservice:MovieService,
+  constructor(private route:ActivatedRoute,
+    private searchservie:SearchService,
     private router:Router,private reviewservice:reviewSerivce) {
     
    }
@@ -25,12 +28,12 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=+this.route.snapshot.params['id'];
-    this.movie=this.movieservice.getMovieById(this.id);
+    console.log(this.searchservie.movieDetails);
+    this.cast=this.searchservie.movieDetails['Actors'].split(',');
   
   }
 
   onCLick(){
-    this.reviewservice.movieSelected.next(this.movie);
     this.navigate();
 
   }

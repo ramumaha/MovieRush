@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 const bcrypt=require('bcrypt');
 const config=require('../config/database');
+const ObjectId=require('mongoose').Types.ObjectId;
 
 //user model
 
@@ -16,6 +17,12 @@ const userSchema=mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    watchlist:{
+        type:Array
+    },
+    review:{
+        type:Object
     }
 });
 
@@ -46,4 +53,48 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     if(err) throw err;
     callback(null, isMatch);
   });
+}
+
+module.exports.addmovie=function(id,movie,callback){
+   if(!ObjectId.isValid(id)){
+       callback(null,false);
+   }else{
+       User.findById(id,(err,doc)=>{
+           if(!err){
+             User.updateOne(
+                 {"_id":doc.id},
+                {$addToSet:{"watchlist":movie}}
+         
+            ).then((obj)=>{
+                callback(obj.acknowledged);
+
+            }).catch((err)=>{
+                console.log(err);
+            })
+            
+           }else{
+            
+           
+               throw err;
+           }
+       });
+   }
+}
+
+module.exports.removeMovie=function(userid,movie,callback){
+    User.findById(userid,(err,doc)=>{
+        if(!err){
+            User.updateOne(
+                {"_id":doc.id},
+                {$pull: { "watchlist": movie }}
+            ).then((obj)=>{
+                console.log(obj);
+                callback(obj.acknowledged);
+            }).catch((err)=>{
+                console.log(err);
+
+            })
+
+        }
+    })
 }

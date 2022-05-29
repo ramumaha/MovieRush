@@ -172,7 +172,9 @@ nav ul .search-icon .icon span{
   height:25px;
   background: url(../../assets/bookmark.png);
   transform: matrix(-1, 0, 0, 1, 0, 0);
-  color:#FFFFFF
+  color:#FFFFFF;
+  cursor: pointer;
+  
   }
   
   .drop-down{

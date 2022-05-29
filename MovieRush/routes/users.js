@@ -40,6 +40,8 @@ router.post('/authenticate',(req,res,next)=>{
           const token = jwt.sign({data: user}, config.secret, {
             expiresIn: 604800 // 1 week
           });
+          usersinged=user._id;
+          
   
           res.json({
             success: true,
@@ -60,7 +62,30 @@ router.post('/authenticate',(req,res,next)=>{
 
 //profile
 router.get('/profile',passport.authenticate('jwt',{session:false}),(req,res,next)=>{
+  usersinged=req.user;
+  
     res.json({user:req.user});
+})
+
+
+//add movie
+router.post('/addmovie',(req,res)=>{
+  User.addmovie(req.body.id,req.body.movie,(status)=>{
+    if(status){
+      res.json({msg:'success'});
+    }
+
+  })
+})
+
+//remove movie
+
+router.post('/removemovie',(req,res)=>{
+  User.removeMovie(req.body.id,req.body.movie,(status)=>{
+    if(status){
+      res.json({msg:'movie deleted successfully'})
+    }
+  })
 })
 
 module.exports=router;

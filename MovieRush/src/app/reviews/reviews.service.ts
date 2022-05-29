@@ -1,13 +1,11 @@
 import {  Injectable } from "@angular/core";
-import { BehaviorSubject, Subject } from "rxjs";
-import { Movie } from "../shared/movie.model";
+import {Subject } from "rxjs";
 import { Review } from "./review.model";
 
 @Injectable({
      providedIn: 'root',
 })
 export class reviewSerivce{
-     movieSelected:Subject<Movie>= new BehaviorSubject<Movie>(null);
      reviewadded=new Subject<Review[]>();
      public review:Review[]=[
           {

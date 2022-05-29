@@ -6,19 +6,22 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ReviewEditComponent } from './reviews/review-edit/review-edit.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { SearchComponent } from './search/search.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:'/signin',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'signin',component:RegisterComponent},
   {path:'watchlist',component:WatchlistComponent},
   {path:'profile',component:ProfileComponent},
+  {path:'search',component:SearchComponent},
   {path:':id',component:MovieDetailsComponent,children:[
-    {path:'',component:ReviewsComponent},
+    {path:'',component:ReviewsComponent,pathMatch:'full'},
     {path:'review',component:ReviewEditComponent},  
     
-  ]}
+  ]},
+  {path:"",redirectTo:'/signin',pathMatch:'full'},
+  {path:"**",redirectTo:'/signin'},
   
   
 ];

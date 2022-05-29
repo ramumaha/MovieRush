@@ -1,19 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {MovieService} from 'src/app/shared/movie.service';
-import { Movie } from '../shared/movie.model';
-
+import { MovieService } from '../shared/movie.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @Input() images:Movie[]=[];
   @Input() indicators=true;
   @Input() controls=true;
   @Input() autoSlide=false;
   @Input() slideInterval=3000;
   selectedIndex=0;
+  @Input() images:any;
+   
   constructor(private movieservice:MovieService) {
     this.images=this.movieservice.getMovies();
    }

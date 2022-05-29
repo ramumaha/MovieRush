@@ -1,1 +1,30 @@
-<p>Your watchlist is empty.</p>
+<div  *ngIf="watchlist" class="posterTable">
+   
+    <br />
+    <table
+      class="fundClassesTable"
+      [class.transpose]="transpose"
+      id="toggled-element"
+    >
+    <th class="tagline">Your BucketList</th>
+      <tr *ngFor="let f of watchlist.user.watchlist">
+        <td>
+          <a [routerLink]="['/',f.imdbID]">
+            <div class="poster col-sm-12 links">
+              <div class="card">
+                <div class="poster">
+                  <img [src]="f['Poster']" class="poster-image" />
+                </div>
+                <span class="details">{{ f['Title'] }}</span>
+                <br>
+                <br>
+              </div>                       
+              <br>
+              <span class="genere">{{ f['Genre'] }}</span>
+            </div>
+          </a>
+        
+        </td>
+        <button (click)="removemovie(f)">Remove from list</button>
+      </tr>
+      <br />

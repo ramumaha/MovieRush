@@ -13,7 +13,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { DropDownDirective} from './shared/dropdown.directive';
-import {MovieService} from './shared/movie.service';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { reviewSerivce } from './reviews/reviews.service';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +21,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import { AuthService } from './register/auth.service';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './search/search.service';
+import { MovieService } from './shared/movie.service';
+import { WatchListService } from './watchlist/watchlist.service';
 
 
 
@@ -42,7 +45,8 @@ import { AuthService } from './register/auth.service';
     DropDownDirective,
     WatchlistComponent,
     SafePipe,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent
     
   ],
   imports: [
@@ -57,7 +61,11 @@ import { AuthService } from './register/auth.service';
 
   
   ],
-  providers: [MovieService,reviewSerivce,AuthService],
+  providers: [MovieService,
+              reviewSerivce,
+              AuthService,
+              SearchService,
+              WatchListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
