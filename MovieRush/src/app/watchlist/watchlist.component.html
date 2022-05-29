@@ -15,12 +15,6 @@
                 <div class="poster">
                   <img [src]="f['Poster']" class="poster-image" />
                 </div>
-                <img src="../../assets/heart.svg" class="likes" /><span
-                  class="rating"
-                  >Remove from wishlist</span
-                >
-                <br>
-                <br>
                 <span class="details">{{ f['Title'] }}</span>
                 <br>
                 <br>
@@ -29,6 +23,8 @@
               <span class="genere">{{ f['Genre'] }}</span>
             </div>
           </a>
+        
         </td>
+        <button (click)="removemovie(f)">Remove from list</button>
       </tr>
       <br />

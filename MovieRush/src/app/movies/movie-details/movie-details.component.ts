@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute,Params } from '@angular/router';
+import { ActivatedRoute,Params, Router } from '@angular/router';
 import { Review } from 'src/app/reviews/review.model';
 import { reviewSerivce } from 'src/app/reviews/reviews.service';
 import { SearchService } from 'src/app/search/search.service';
 import { WatchListService } from 'src/app/watchlist/watchlist.service';
 import {FlashMessagesService} from 'angular2-flash-messages';
+import { AuthService } from 'src/app/register/auth.service';
 
 
 @Component({
@@ -22,7 +23,9 @@ export class MovieDetailsComponent implements OnInit {
     private reviewservice:reviewSerivce,
     private searchservice:SearchService,
     private watchlistservice:WatchListService,
-    private flashMessage:FlashMessagesService ) { }
+    private flashMessage:FlashMessagesService,
+    private authservice:AuthService,
+    private router:Router ) { }
 
   ngOnInit(): void {
     this.route.params
@@ -55,30 +58,43 @@ export class MovieDetailsComponent implements OnInit {
 
 
   toggleColor(){
-    this.isActive=!this.isActive; 
-    if(this.isActive){
-      this.watchlistservice.addmovie(this.movie).subscribe(data=>{
-        if(data.ok){
-          this.flashMessage.show("Movie Added",{cssClass:'alert-success',timeout:4000});
-        }else{
-          this.flashMessage.show("Error!!!Try later",{cssClass:'alert-danger',timeout:4000});
+   
+    this.authservice.getProfile().subscribe(user=>{
+      console.log(user);
+      // this.user=user;
+      if(user){
+        this.isActive=!this.isActive; 
+        if(this.isActive){
+          this.watchlistservice.addmovie(this.movie).subscribe(data=>{
+            if(data.ok){
+              this.flashMessage.show("Movie Added",{cssClass:'alert-success',timeout:4000});
+            }else{
+              this.flashMessage.show("Error!!!Try later",{cssClass:'alert-danger',timeout:4000});
+            }
+            
+          })
+        } else if(!this.isActive){
+          this.watchlistservice.removemovie(this.movie).subscribe(
+            data=>{
+              if(data.ok){
+                this.flashMessage.show("Movie Removed",{cssClass:'alert-success',timeout:4000});
+              }else{
+                this.flashMessage.show("Movie not found",{cssClass:'alert-danger',timeout:4000});
+              }
+              
+            }
+          )
+  
         }
+      }else{
+        this.flashMessage.show('Sign in to add movies',{cssClass:'alert-danger',timeout:3000});
+        this.router.navigate(['/signin']);
         
-      })
-    }else{
-      this.watchlistservice.removemovie(this.movie).subscribe(
-        data=>{
-          if(data.ok){
-            this.flashMessage.show("Movie Removed",{cssClass:'alert-success',timeout:4000});
-          }else{
-            this.flashMessage.show("Movie not found",{cssClass:'alert-danger',timeout:4000});
-          }
-          
-        }
-      )
-    }
 
-
+      } },
+    err=>{
+      console.log(err);
+    })
   }
 
 }

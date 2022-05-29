@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../register/auth.service';
+import { WatchListService } from './watchlist.service';
+import {FlashMessagesService} from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-watchlist',
@@ -13,7 +16,10 @@ export class WatchlistComponent implements OnInit {
   transpose = true;
 
   constructor(
-    private authservice:AuthService
+    private authservice:AuthService,
+    private watchlistservice:WatchListService,
+    private flashMessage:FlashMessagesService,
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +34,22 @@ export class WatchlistComponent implements OnInit {
   }
   toggleTranspose() {
     this.transpose = !this.transpose;
+  }
+
+  removemovie(movie){
+    console.log(movie);
+    this.watchlistservice.removemovie(movie).subscribe(
+      data=>{
+        console.log(data);
+        if(data.ok){
+          this.flashMessage.show("Movie Removed",{cssClass:'alert-success',timeout:4000});
+          this.router.navigate(['/watchlist']);
+        }else{
+          this.flashMessage.show("Movie not found",{cssClass:'alert-danger',timeout:4000});
+        }
+        
+      }
+    )
   }
 
 }
