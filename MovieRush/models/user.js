@@ -21,7 +21,7 @@ const userSchema=mongoose.Schema({
     watchlist:{
         type:Array
     },
-    review:{
+    reviews:{
         type:Object
     }
 });
@@ -96,5 +96,36 @@ module.exports.removeMovie=function(userid,movie,callback){
             })
 
         }
+    })
+}
+
+module.exports.addReview=function(userid,review,callback){
+    console.log(userid);
+    User.findById(userid,(err,doc)=>{
+        if(!err){
+            console.log(doc);
+            User.updateOne(
+                {"_id":doc.id},
+                {$addToSet: { "reviews": review }}
+            ).then((obj)=>{
+                // console.log(obj);
+                callback(obj.acknowledged);
+            }).catch((err)=>{
+                console.log(err);
+
+            })
+
+        }
+    })
+    
+}
+
+module.exports.displayReview=function(moviename,callback){
+    User.find({
+        "review.Title":moviename       
+    }).then(data=>{
+        console.log(data);
+    }).catch((err)=>{
+        console.log(err);
     })
 }

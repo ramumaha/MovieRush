@@ -88,4 +88,24 @@ router.post('/removemovie',(req,res)=>{
   })
 })
 
+//add review
+router.post('/addreview',(req,res)=>{
+  User.addReview(req.body.id,req.body.review,(status)=>{
+    if(status){
+      res.json({msg:'success'});
+    }
+  })
+})
+
+//display review
+router.get('/displayreview',(req,res)=>{
+  User.displayReview(req.body.Title,(status)=>{
+    if(status){
+      res.json({msg:'success'});
+    }
+  })
+})
+
+
+
 module.exports=router;
