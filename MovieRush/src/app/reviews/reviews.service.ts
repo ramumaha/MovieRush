@@ -15,6 +15,7 @@ export class reviewSerivce{
      public review:Review[]=[
           {
                moviename:"inside out",
+               imdbID:"1234",
                rating:9,
                headline:"Worth Watching",
                review:"It is a very funny movie..Informative and opens up a new world",                 
@@ -34,8 +35,16 @@ export class reviewSerivce{
          
 
      }
-     displayReview():Review[]{
-          return this.review.slice();
+     displayReview(){
+          let headers=new HttpHeaders();
+          headers.append('Content-Type','application/json');
+          return this.http.get('http://localhost:3000/users/displayreview',{
+               headers:headers
+          }).pipe(map((res:HttpResponse<Text>)=> res));  
+
+
+
+         
 
      }
 

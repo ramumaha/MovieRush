@@ -43,6 +43,7 @@ export class ReviewEditComponent implements OnInit {
   onSubmit(form:NgForm){
     const value=form.value;
     const newReview=new Review(this.movie.Title,
+      this.movie.imdbID,
       this.currentRate,
       value.headline,value.review,
       value.username,value.spoilers);

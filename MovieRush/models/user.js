@@ -100,7 +100,6 @@ module.exports.removeMovie=function(userid,movie,callback){
 }
 
 module.exports.addReview=function(userid,review,callback){
-    console.log(userid);
     User.findById(userid,(err,doc)=>{
         if(!err){
             console.log(doc);
@@ -120,11 +119,32 @@ module.exports.addReview=function(userid,review,callback){
     
 }
 
-module.exports.displayReview=function(moviename,callback){
-    User.find({
-        "review.Title":moviename       
-    }).then(data=>{
-        console.log(data);
+module.exports.displayReview=function(imdbID,callback){
+    User.aggregate(
+        [
+            {$match:{"reviews.imdbID":imdbID}},
+            {$project:{
+                "reviews":{
+                    $filter:{
+                        input:"$reviews",
+                        as:"review",
+                        cond:{$eq:["$$review.imdbID",imdbID]}
+
+                    }
+                }
+
+            }},
+            {$project:{review:"$reviews"}}
+
+        ]
+    ).then(obj=>{
+        console.log(obj);
+        if(obj){
+           console.log(obj);
+            return callback(review);
+        }else{
+            return callback(false);
+        }
     }).catch((err)=>{
         console.log(err);
     })

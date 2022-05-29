@@ -42,7 +42,14 @@ export class MovieDetailsComponent implements OnInit {
 
       }
       );
-    this.reviews=this.reviewservice.displayReview();
+      this.reviewservice.displayReview().subscribe(
+        (data)=>{
+          console.log(data);
+        }
+      ),(err)=>{
+        console.log(err);
+      }
+    // this.reviews=this.reviewservice.displayReview();
 
    
   }
