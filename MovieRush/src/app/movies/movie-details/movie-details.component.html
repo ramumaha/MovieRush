@@ -37,28 +37,23 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div  *ngIf="reviews" class="review-card">
+        <div  *ngIf="reviewstemp" class="review-card">
             User Reviews
-            <div *ngFor="let review of reviews.review ,let i=index ">   
-                <div class="box box-down orange review-container">
+            <div *ngFor="let entryEl of reviewjs ,let i=index ">   
+                <div *ngFor="let review of entryEl.review">
+                    <div class="box box-down orange review-container">
                     <i class="fa fa-star" aria-hidden="true"></i> {{review.rating}}/10.0
-                    <h4> {{review.review[0].review[0].name}}</h4>
-                   {{review.name}}
+
+                    <h4> {{review.headline}}</h4>
+                    - {{review.name}}
                     <p>
                         {{review.review}}
                     </p>
-                  
-                  
-                    </div>
-         
-    
-               
-            </div>
-    
-        </div>
 
+                </div> 
+                    </div>
+            </div>
+        </div>
     </div>
-    
-    
 </body>
 </html>

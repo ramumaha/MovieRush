@@ -17,7 +17,9 @@ export class MovieDetailsComponent implements OnInit {
    @Input()id:any;
    @Input() movie:any;
    isActive:boolean;
-   reviews:any;
+   entry=[];
+   reviewstemp:any;
+   reviewjs:any;
 
   constructor(private route:ActivatedRoute,
     private reviewservice:reviewSerivce,
@@ -37,9 +39,9 @@ export class MovieDetailsComponent implements OnInit {
     this.loadMovie();
       this.reviewservice.displayReview(this.id).subscribe(
         (data)=>{
-          this.reviews=data;
-          // this.reviews=this.reviews.review;
-          // console.log(this.reviews.review[0].review[0].name);
+          this.reviewstemp=data;
+          this.reviewjs=this.reviewstemp.review
+        
         }
       ),(err)=>{
         console.log(err);
