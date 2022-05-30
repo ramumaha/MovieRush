@@ -17,7 +17,7 @@ export class MovieDetailsComponent implements OnInit {
    @Input()id:any;
    @Input() movie:any;
    isActive:boolean;
-   reviews:Review[]=[];
+   reviews:any;
 
   constructor(private route:ActivatedRoute,
     private reviewservice:reviewSerivce,
@@ -32,20 +32,18 @@ export class MovieDetailsComponent implements OnInit {
     .subscribe(
       (params:Params)=>{
         this.id=params['id'];
-     
       }
     )
     this.loadMovie();
       this.reviewservice.displayReview(this.id).subscribe(
         (data)=>{
-          console.log(data);
+          this.reviews=data;
+          // this.reviews=this.reviews.review;
+          // console.log(this.reviews.review[0].review[0].name);
         }
       ),(err)=>{
         console.log(err);
-      }
-    // this.reviews=this.reviewservice.displayReview();
-
-   
+      }   
   }
   loadMovie(){
     this.searchservice.getDetails(this.id).subscribe((data)=>{
@@ -62,7 +60,6 @@ export class MovieDetailsComponent implements OnInit {
    
     this.authservice.getProfile().subscribe(user=>{
       console.log(user);
-      // this.user=user;
       if(user){
         this.isActive=!this.isActive; 
         if(this.isActive){

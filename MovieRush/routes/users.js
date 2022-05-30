@@ -92,7 +92,7 @@ router.post('/removemovie',(req,res)=>{
 router.post('/addreview',(req,res)=>{
   User.addReview(req.body.id,req.body.review,(status)=>{
     if(status){
-      console.log(status);
+      res.json({msg:'success'});
     }
   })
 })
