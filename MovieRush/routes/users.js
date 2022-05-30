@@ -62,7 +62,7 @@ router.post('/authenticate',(req,res,next)=>{
 
 //profile
 router.get('/profile',passport.authenticate('jwt',{session:false}),(req,res,next)=>{
-  usersinged=req.user;
+  // usersinged=req.user;
   
     res.json({user:req.user});
 })
@@ -99,12 +99,10 @@ router.post('/addreview',(req,res)=>{
 
 //display review
 router.get('/displayreview',(req,res)=>{
-  const request=url(req.pathname);
-  console.log(request.substring(1));
-  User.displayReview(request.substring(1),(status)=>{
-    if(status){
-      // res.json({msg:'success'});
-      console.log(status);
+ 
+  User.displayReview(req.query.id,(obj)=>{
+    if(obj){
+      res.json({review:obj});
     }
   })
 })

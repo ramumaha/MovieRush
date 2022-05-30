@@ -36,13 +36,7 @@ export class MovieDetailsComponent implements OnInit {
       }
     )
     this.loadMovie();
-    this.reviewservice.reviewadded.subscribe(
-      (reviews:Review[])=>{
-        this.reviews=reviews;
-
-      }
-      );
-      this.reviewservice.displayReview().subscribe(
+      this.reviewservice.displayReview(this.id).subscribe(
         (data)=>{
           console.log(data);
         }

@@ -1,15 +1,21 @@
 import {  Injectable } from "@angular/core";
-import {Subject } from "rxjs";
 import { Review } from "./review.model";
-import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http'
 import {map} from 'rxjs/operators';
 import { AuthService } from "../register/auth.service";
+const PARAMS= new HttpParams({
+     fromObject:{
+       action:"opensearch",
+       format:"json",
+       origin:"*"
+     }
+   });
 
 @Injectable({
      providedIn: 'root',
 })
 export class reviewSerivce{
-     reviewadded=new Subject<Review[]>();
+    
      constructor(private http:HttpClient,
           private authservice:AuthService){}
      public review:Review[]=[
@@ -35,17 +41,12 @@ export class reviewSerivce{
          
 
      }
-     displayReview(){
+     displayReview(imdbId){
           let headers=new HttpHeaders();
           headers.append('Content-Type','application/json');
-          return this.http.get('http://localhost:3000/users/displayreview',{
-               headers:headers
+          return this.http.get('http://localhost:3000/users/displayreview/?id='+imdbId,{
+               params:PARAMS.set('search',imdbId)
           }).pipe(map((res:HttpResponse<Text>)=> res));  
-
-
-
-         
-
      }
 
    

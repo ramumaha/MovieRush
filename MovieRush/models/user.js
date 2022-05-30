@@ -138,10 +138,8 @@ module.exports.displayReview=function(imdbID,callback){
 
         ]
     ).then(obj=>{
-        console.log(obj);
         if(obj){
-           console.log(obj);
-            return callback(review);
+            return callback(obj);
         }else{
             return callback(false);
         }
