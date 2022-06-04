@@ -10,7 +10,8 @@
     <div class="cols">
         <div class="row-md-4">
             <br>
-            <ngb-rating [(rate)]="currentRate"></ngb-rating>
+            <div class="rating">{{currentRate}}/10      Internet Movie Database</div>
+            <alife-rating-star [options]="options"  [rating]="currentRate" ></alife-rating-star>           
           <hr>
         </div>
         <div class="row-md-4">

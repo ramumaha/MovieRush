@@ -6,14 +6,20 @@ import { SearchService } from '../search/search.service';
 import { Review } from './review.model';
 import { reviewSerivce } from './reviews.service';
 
+
+
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.css']
 })
 export class ReviewsComponent implements OnInit {
+   options={
+    maxRating : 10,
+    readOnly:true
+     
+  }
   currentRate = 8;
-  isReadonly = false;
   movie:any;
   cast:any;
   id:number;
@@ -22,19 +28,23 @@ export class ReviewsComponent implements OnInit {
   constructor(private route:ActivatedRoute,
     private searchservie:SearchService,
     private router:Router,private reviewservice:reviewSerivce) {
-    
    }
 
 
   ngOnInit(): void {
     this.id=+this.route.snapshot.params['id'];
-    console.log(this.searchservie.movieDetails);
     this.cast=this.searchservie.movieDetails['Actors'].split(',');
+    this.currentRate=Math.floor(this.searchservie.movieDetails['Ratings'][0]['Value'].split('/')[0]);
   
   }
 
   onCLick(){
-    this.navigate();
+    console.log();
+    if(localStorage['user']){
+    this.navigate();}
+    else{
+      this.router.navigate(['signin']);
+    }
 
   }
   

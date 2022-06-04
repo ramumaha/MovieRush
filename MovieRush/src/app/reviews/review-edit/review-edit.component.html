@@ -44,7 +44,8 @@
             <div class="row-sm-5 form-group">
               <label for="rating">YOUR RATING</label>
               <br />
-              <ngb-rating [max]="10" [(rate)]="currentRate" [readonly]="false" required></ngb-rating>
+              <!-- <ngb-rating [max]="10" [(rate)]="currentRate" [readonly]="false" required></ngb-rating> -->
+              <alife-rating-star [options]="options"  [(rating)]="currentRate" ></alife-rating-star>           
               <p>Rating:{{currentRate}}</p>
             </div>
             <div class="row-sm-5 form-group">

@@ -15,6 +15,11 @@ export class ReviewEditComponent implements OnInit {
   currentRate=0;
   movie:any;
   id:any;
+  options={
+    maxRating : 10,
+    readOnly:false
+     
+  }
   @Input()activated=false;
   subscription:Subscription;
   constructor(private router:Router,
