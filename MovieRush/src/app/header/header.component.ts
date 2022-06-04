@@ -20,6 +20,9 @@ export class HeaderConponent implements OnInit {
         this.authService.signin.subscribe(state=>{
             this.status=state; 
         });
+        if(localStorage['user']){
+            this.status=true;
+        }
         
     }
    onSelect(select:string){
