@@ -25,7 +25,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchService } from './search/search.service';
 import { MovieService } from './shared/movie.service';
 import { WatchListService } from './watchlist/watchlist.service';
-
+import { AlifeRatingStarModule } from 'alife-rating-star';
 
 
 
@@ -57,7 +57,8 @@ import { WatchListService } from './watchlist/watchlist.service';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    AlifeRatingStarModule
 
   
   ],

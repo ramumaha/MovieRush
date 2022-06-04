@@ -14,24 +14,23 @@ export class ReviewEditComponent implements OnInit {
   @ViewChild('f')rForm:NgForm
   currentRate=0;
   movie:any;
+  id:any;
+  options={
+    maxRating : 10,
+    readOnly:false
+     
+  }
   @Input()activated=false;
   subscription:Subscription;
   constructor(private router:Router,
     private route:ActivatedRoute,
     private reviewservice:reviewSerivce,
-    private searchservice:SearchService
+    private searchservice:SearchService,
     
     )      
      { }
 
   ngOnInit(): void {
-    // this.subscription=this.reviewservice.movieSelected
-    //   .subscribe(
-    //     (movie:Movie)=>{
-    //     //  this.movie=movie;
-  
-    //     }
-    //   );
     this.movie=this.searchservice.movieDetails;
   }
   revertback(){
@@ -49,11 +48,17 @@ export class ReviewEditComponent implements OnInit {
   onSubmit(form:NgForm){
     const value=form.value;
     const newReview=new Review(this.movie.Title,
+      this.movie.imdbID,
       this.currentRate,
       value.headline,value.review,
       value.username,value.spoilers);
-      this.reviewservice.addReview(newReview);
+      this.reviewservice.addReview(newReview).subscribe(
+        (data)=>{
+          console.log(data);
+        }
+      )
       form.reset();
+      this.router.navigate(['../'],{relativeTo:this.route})
   }
 
 

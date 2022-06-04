@@ -4,7 +4,7 @@ const User=require('../models/user');
 const passport=require('passport');
 const jwt=require('jsonwebtoken');
 const config=require('../config/database');
-
+const url=require('url');
 //register
 
 router.post('/register',(req,res,next)=>{
@@ -62,7 +62,7 @@ router.post('/authenticate',(req,res,next)=>{
 
 //profile
 router.get('/profile',passport.authenticate('jwt',{session:false}),(req,res,next)=>{
-  usersinged=req.user;
+  // usersinged=req.user;
   
     res.json({user:req.user});
 })
@@ -87,5 +87,26 @@ router.post('/removemovie',(req,res)=>{
     }
   })
 })
+
+//add review
+router.post('/addreview',(req,res)=>{
+  User.addReview(req.body.id,req.body.review,(status)=>{
+    if(status){
+      res.json({msg:'success'});
+    }
+  })
+})
+
+//display review
+router.get('/displayreview',(req,res)=>{
+ 
+  User.displayReview(req.query.id,(obj)=>{
+    if(obj){
+      res.json({review:obj});
+    }
+  })
+})
+
+
 
 module.exports=router;
