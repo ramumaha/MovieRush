@@ -11,9 +11,13 @@ export class MovieListComponent implements OnInit {
   @Input() posters=[];
   fundClassDetailsViewModelData = [];
   transpose = true;
+  user=false;
   constructor(private movieservice:MovieService ){}
   ngOnInit() {
     this.posters=this.movieservice.getMovies();
+    if(localStorage['user']){
+      this.user=true;
+    }
   }
   
 

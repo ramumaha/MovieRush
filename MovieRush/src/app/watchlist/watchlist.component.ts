@@ -43,7 +43,7 @@ export class WatchlistComponent implements OnInit {
         console.log(data);
         if(data.ok){
           this.flashMessage.show("Movie Removed",{cssClass:'alert-success',timeout:4000});
-          this.router.navigate(['/watchlist']);
+          location.reload();
         }else{
           this.flashMessage.show("Movie not found",{cssClass:'alert-danger',timeout:4000});
         }

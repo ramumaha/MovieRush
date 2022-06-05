@@ -58,7 +58,7 @@ export class ReviewEditComponent implements OnInit {
         }
       )
       form.reset();
-      this.router.navigate(['../'],{relativeTo:this.route})
+      location.reload();
   }
 
 

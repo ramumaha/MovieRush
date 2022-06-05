@@ -29,4 +29,13 @@
       </td>
     </tr>
     <br />
-   <div>Details from wishlist comes here</div>
+    <tr>
+      <div *ngIf="user">
+        <app-watchlist></app-watchlist>
+      </div>
+      <div *ngIf="!user">
+        Sign in to view the watchlist
+        
+      </div>
+    </tr>
+  

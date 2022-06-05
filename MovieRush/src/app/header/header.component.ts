@@ -2,6 +2,7 @@ import { Component,EventEmitter,Input,Output,OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
 import { AuthService } from "../register/auth.service";
+
 @Component({
     selector:'header-component',
     templateUrl:'./header.component.html',
@@ -19,19 +20,23 @@ export class HeaderConponent implements OnInit {
         this.authService.signin.subscribe(state=>{
             this.status=state; 
         });
+        if(localStorage['user']){
+            this.status=true;
+        }
         
     }
    onSelect(select:string){
-       console.log(select);
        this.notify.emit(select);
    }
 
    navigateWatchlist(){
-       if(!this.status){
-        this.flashMessage.show("Login to access",{cssClass:'alert-danger',timeout:4000});
-           this.router.navigate(['/signin']);
+       if(localStorage['user']){
+        this.router.navigate(['/watchlist']);
+        this.status=true;
+
        }else{
-           this.router.navigate(['/watchlist']);
+        this.flashMessage.show("Login to access",{cssClass:'alert-danger',timeout:4000});
+        this.router.navigate(['/signin']);
        }
    }
 
