@@ -1,4 +1,4 @@
-import { Component,EventEmitter,Input,Output,OnInit } from "@angular/core";
+import { Component,EventEmitter,Input,Output,OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
 import { AuthService } from "../register/auth.service";
@@ -11,6 +11,8 @@ import { AuthService } from "../register/auth.service";
 export class HeaderConponent implements OnInit {
    @Output()  notify:EventEmitter<string>=new EventEmitter();
    status:Boolean=false;
+   @ViewChild('movieSearchInput',{static:true})
+  movieSearchInput!:ElementRef;
    constructor(
     private flashMessage:FlashMessagesService,
     private authService:AuthService,

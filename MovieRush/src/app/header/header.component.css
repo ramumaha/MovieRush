@@ -185,7 +185,7 @@ nav ul .search-icon .icon span{
     background: url(../../assets/down-arrow.png);
     }
   
-  .show,.icon,input{
+  .show,.icon{
   
     display:none;
   
@@ -248,4 +248,32 @@ nav ul li a:hover{
 
 }
 }
+/* .search{
+  background-color: black;
+  color:white;
+} */
 
+.box{
+  object-fit: contain;
+  width:50em;
+  padding:1em;
+  align-self: center;
+  background-color:black;
+  display:inline-block;
+  margin:0px 5px 0px 5px;
+  color:black
+}
+
+input[type="text"]::placeholder{
+  background-color: white;
+  text-align: center;
+  /* color:#000; */
+}
+
+input{
+  color:#000;
+}
+
+.check{
+  display:none;
+}
