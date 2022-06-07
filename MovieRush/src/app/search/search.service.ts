@@ -8,12 +8,13 @@ const PARAMS= new HttpParams({
     format:"json",
     origin:"*"
   }
-});
+}); 
 
 
 @Injectable()
 export class SearchService{
   movieDetails:any
+  movie:string;
     constructor(
         private httpClient:HttpClient
     ){}

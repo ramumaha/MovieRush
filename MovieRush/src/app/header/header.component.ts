@@ -1,7 +1,10 @@
 import { Component,EventEmitter,Input,Output,OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
+import { fromEvent } from "rxjs";
+import { debounceTime, distinctUntilChanged, filter, map } from "rxjs/operators";
 import { AuthService } from "../register/auth.service";
+import { SearchService } from "../search/search.service";
 
 @Component({
     selector:'header-component',
@@ -12,11 +15,12 @@ export class HeaderConponent implements OnInit {
    @Output()  notify:EventEmitter<string>=new EventEmitter();
    status:Boolean=false;
    @ViewChild('movieSearchInput',{static:true})
-  movieSearchInput!:ElementRef;
+    movieSearchInput!:ElementRef;
    constructor(
     private flashMessage:FlashMessagesService,
     private authService:AuthService,
-    private router:Router
+    private router:Router,
+    private serachservice:SearchService
     ){}
     ngOnInit(): void {
         this.authService.signin.subscribe(state=>{
@@ -25,6 +29,19 @@ export class HeaderConponent implements OnInit {
         if(localStorage['user']){
             this.status=true;
         }
+        fromEvent(this.movieSearchInput.nativeElement,'keyup').pipe(
+              map((event:any)=>{
+                return event.target.value;
+              }),
+              filter(res=>res.length>=2)
+              ,debounceTime(1000)
+              ,distinctUntilChanged()
+            ).subscribe((text:string)=>{
+                this.serachservice.movie=text;
+                this.router.navigate(['/search']);
+
+             })
+
         
     }
    onSelect(select:string){
