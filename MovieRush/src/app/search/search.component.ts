@@ -46,6 +46,7 @@ export class SearchComponent implements OnInit {
     //     console.log('err',err);
     //   };
     // });
+    
     this.moviename=this.searchService.movie;
       this.isSearching=true;
       this.searchService.searchGetCall(this.moviename).subscribe((res)=>{

@@ -14,7 +14,7 @@ import { SearchService } from "../search/search.service";
 export class HeaderConponent implements OnInit {
    @Output()  notify:EventEmitter<string>=new EventEmitter();
    status:Boolean=false;
-   @ViewChild('movieSearchInput',{static:true})
+    @ViewChild('movieSearchInput',{static:true})
     movieSearchInput!:ElementRef;
    constructor(
     private flashMessage:FlashMessagesService,
@@ -39,11 +39,9 @@ export class HeaderConponent implements OnInit {
             ).subscribe((text:string)=>{
                 this.serachservice.movie=text;
                 this.router.navigate(['/search']);
-
              })
-
-        
     }
+
    onSelect(select:string){
        this.notify.emit(select);
    }
