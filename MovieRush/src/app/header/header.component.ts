@@ -1,21 +1,30 @@
-import { Component,EventEmitter,Input,Output,OnInit } from "@angular/core";
+import { Component,EventEmitter,Input,Output,OnInit, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
+import { fromEvent } from "rxjs";
+import { debounceTime, distinctUntilChanged, filter, map } from "rxjs/operators";
 import { AuthService } from "../register/auth.service";
+import { SearchService } from "../search/search.service";
 
 @Component({
     selector:'header-component',
     templateUrl:'./header.component.html',
     styleUrls:['./header.component.css']
 })
-export class HeaderConponent implements OnInit {
+export class HeaderConponent implements OnInit,AfterViewInit {
    @Output()  notify:EventEmitter<string>=new EventEmitter();
    status:Boolean=false;
+    @ViewChild('movieSearchInput',{static:true})
+    movieSearchInput!:ElementRef;
    constructor(
     private flashMessage:FlashMessagesService,
     private authService:AuthService,
-    private router:Router
+    private router:Router,
+    private serachservice:SearchService
     ){}
+    ngAfterViewInit(): void {
+        // this.serachservice.m
+    }
     ngOnInit(): void {
         this.authService.signin.subscribe(state=>{
             this.status=state; 
@@ -23,8 +32,23 @@ export class HeaderConponent implements OnInit {
         if(localStorage['user']){
             this.status=true;
         }
-        
+        this.serachservice.movieSearch=this.movieSearchInput;
+        fromEvent(this.serachservice.movieSearch.nativeElement,'keyup').pipe(
+              map((event:any)=>{
+                return event.target.value;
+              }),
+              filter(res=>res.length>=2)
+              ,debounceTime(1000)
+              ,distinctUntilChanged()
+            ).subscribe((text:string)=>{
+                this.serachservice.movie=text;
+                this.router.navigate(['/search']);
+             })
+        if(this.serachservice.movie){
+            this.router.navigate(['/search']);
+        }
     }
+
    onSelect(select:string){
        this.notify.emit(select);
    }

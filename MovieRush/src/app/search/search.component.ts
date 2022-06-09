@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
   name:string;
   fundClassDetailsViewModelData = [];
   transpose = true;
+  moviename:string;
 
   constructor(
     private searchService: SearchService,
@@ -27,7 +28,7 @@ export class SearchComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    fromEvent(this.movieSearchInput.nativeElement,'keyup').pipe(
+    fromEvent(this.searchService.movieSearch.nativeElement,'keyup').pipe(
       map((event:any)=>{
         return event.target.value;
       }),
@@ -45,6 +46,20 @@ export class SearchComponent implements OnInit {
         console.log('err',err);
       };
     });
+    // this.searchService.
+    this.moviename=this.searchService.movie;
+      this.isSearching=true;
+      this.searchService.searchGetCall(this.moviename).subscribe((res)=>{
+        this.movieDetails=res['Search'];
+        this.isSearching=false;
+        this.apiResponse=false;
+      }),(err)=>{
+        this.isSearching=false;
+        console.log('err',err);
+      };
+    ;
+
+
    
    
   }

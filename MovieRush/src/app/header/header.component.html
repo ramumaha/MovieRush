@@ -1,50 +1,86 @@
-  <head>
-  <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
-    <link rel="stylesheet" href="header.component.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet"> 
-
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header</title>
+  <link rel="stylesheet" href="header.component.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-   <nav>
+  <nav>
     <div class="logo">MovieRush</div>
+
     <label for="btn" class="icon">
-        <span class="fa fa-bars"></span>
+      <span class="fa fa-bars"></span>
     </label>
-       <ul>  
-           <li class="search-icon" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}">
-            <a routerLink="/search"> <span class="fa fa-search"></span></a>
-        <input type="checkbox" id="btn">
-        </li>
-               <li routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/home">HOME</a></li>
-               <li routerLinkActive="selected"   [routerLinkActiveOptions]="{exact: true}" >
-               <img src="bookmark.png" class="bookmark" alt="reel" />
-               <a (click)="navigateWatchlist()">WATCHLIST</a></li>
-                <li routerLinkActive="selected"  [routerLinkActiveOptions]="{exact: true}"><a routerLink= " /signin">SIGN IN</a>
-               <ul class="btn-group"
-               appDropDown
-               *ngIf="status"
-               >
-                   <li class="user"><a (click)="onLogOutClick()" href="#">SIGNOUT</a></li>
-                   <li  class="user" routerLinkActive="selected" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/profile">PROFILE</a></li>
-               </ul>
-            </li> 
-               <li> 
-                <input type="checkbox" id="btn-1">
-                <a>EN</a>
-                   <img src="down-arrow.png" class="drop-down" alt="drop-down" />  
-                   <ul>
-                   <li><a>FR</a></li>
-                   <li><a>DE</a></li>
-                   <li><a>PT</a></li>
-                </ul>
-               </li>
-            </ul>
-        </nav>
-        <flash-messages></flash-messages>
-     </body>
+    <ul>
+      <li>
+    <div class="box">
+    <form>
+      <input type="text" placeholder="Search movies here"   #movieSearchInput  name="search" class="form-control">
+    </form>
+  </div>
+
+      </li>
+      <li
+      class="search-icon">    
+        <span class="fa fa-search"></span>
+
+      </li>
+      <li
+        routerLinkActive="selected"
+
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/home">HOME</a>
+      </li>
+      <li
+        routerLinkActive="selected"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <img src="bookmark.png" class="bookmark" alt="reel" />
+        <a (click)="navigateWatchlist()">WATCHLIST</a>
+      </li>
+      <li
+        routerLinkActive="selected"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink=" /signin">SIGN IN</a>
+        <ul class="btn-group" appDropDown *ngIf="status">
+          <li class="user">
+            <a (click)="onLogOutClick()" href="#">SIGNOUT</a>
+          </li>
+          <li
+            class="user"
+            routerLinkActive="selected"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a routerLink="/profile">PROFILE</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox" id="btn-1"  class="check"/>
+        <a>EN</a>
+        <img src="down-arrow.png" class="drop-down" alt="drop-down" />
+        <ul>
+          <li><a>FR</a></li>
+          <li><a>DE</a></li>
+          <li><a>PT</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="search-container">
+  </div>
+  <flash-messages></flash-messages>
+</body>
