@@ -15,11 +15,6 @@
         <button type="button" class="toggle-btn" (click)="login()">Login</button>
         <button type="button" class="toggle-btn" (click)="register()" >Register</button>
     </div>
-    <div class="social-icons">
-        <i class="fa fa-twitter fa-fw"></i>
-        <i class="fa fa-google fa-fw"></i>
-        <i class="fa fa-facebook fa-fw"></i>
-    </div>
     <form  (submit)="onLogin(lf)" id="login" class="input-group" #loginf #lf="ngForm" >
         <input type="text" 
         class="input-field"
