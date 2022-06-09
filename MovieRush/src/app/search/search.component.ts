@@ -28,25 +28,25 @@ export class SearchComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // fromEvent(this.movieSearchInput.nativeElement,'keyup').pipe(
-    //   map((event:any)=>{
-    //     return event.target.value;
-    //   }),
-    //   filter(res=>res.length>=2)
-    //   ,debounceTime(1000)
-    //   ,distinctUntilChanged()
-    // ).subscribe((text:string)=>{
-    //   this.isSearching=true;
-    //   this.searchService.searchGetCall(text).subscribe((res)=>{
-    //     this.movieDetails=res['Search'];
-    //     this.isSearching=false;
-    //     this.apiResponse=false;
-    //   }),(err)=>{
-    //     this.isSearching=false;
-    //     console.log('err',err);
-    //   };
-    // });
-    
+    fromEvent(this.searchService.movieSearch.nativeElement,'keyup').pipe(
+      map((event:any)=>{
+        return event.target.value;
+      }),
+      filter(res=>res.length>=2)
+      ,debounceTime(1000)
+      ,distinctUntilChanged()
+    ).subscribe((text:string)=>{
+      this.isSearching=true;
+      this.searchService.searchGetCall(text).subscribe((res)=>{
+        this.movieDetails=res['Search'];
+        this.isSearching=false;
+        this.apiResponse=false;
+      }),(err)=>{
+        this.isSearching=false;
+        console.log('err',err);
+      };
+    });
+    // this.searchService.
     this.moviename=this.searchService.movie;
       this.isSearching=true;
       this.searchService.searchGetCall(this.moviename).subscribe((res)=>{

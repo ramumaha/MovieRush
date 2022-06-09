@@ -1,4 +1,4 @@
-import { Component,EventEmitter,Input,Output,OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component,EventEmitter,Input,Output,OnInit, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FlashMessagesService } from "angular2-flash-messages";
 import { fromEvent } from "rxjs";
@@ -11,7 +11,7 @@ import { SearchService } from "../search/search.service";
     templateUrl:'./header.component.html',
     styleUrls:['./header.component.css']
 })
-export class HeaderConponent implements OnInit {
+export class HeaderConponent implements OnInit,AfterViewInit {
    @Output()  notify:EventEmitter<string>=new EventEmitter();
    status:Boolean=false;
     @ViewChild('movieSearchInput',{static:true})
@@ -22,6 +22,9 @@ export class HeaderConponent implements OnInit {
     private router:Router,
     private serachservice:SearchService
     ){}
+    ngAfterViewInit(): void {
+        // this.serachservice.m
+    }
     ngOnInit(): void {
         this.authService.signin.subscribe(state=>{
             this.status=state; 
@@ -29,7 +32,8 @@ export class HeaderConponent implements OnInit {
         if(localStorage['user']){
             this.status=true;
         }
-        fromEvent(this.movieSearchInput.nativeElement,'keyup').pipe(
+        this.serachservice.movieSearch=this.movieSearchInput;
+        fromEvent(this.serachservice.movieSearch.nativeElement,'keyup').pipe(
               map((event:any)=>{
                 return event.target.value;
               }),
@@ -40,6 +44,9 @@ export class HeaderConponent implements OnInit {
                 this.serachservice.movie=text;
                 this.router.navigate(['/search']);
              })
+        if(this.serachservice.movie){
+            this.router.navigate(['/search']);
+        }
     }
 
    onSelect(select:string){
