@@ -23,16 +23,16 @@ The registered users have the option of offering reviews to the movies.The revie
 
 **Seach**
   There is a search bar present in the navigation bar,The users can search for the desired movie and the top 10 results that match the search are displayed.       
-   ** Movie details **
+   **Movie details**
         Once the desired movie is chosen,the user is redirected to the custom page of the movie.Details such as movie name,date,country,director etc., are displayed.The drop down near view all the information details about the plot of the movie.The rating and the cast is also displayed in the right.
     The reviews given by all the users for the specific movie are loaded by the side.
 
 **Back-end**
-    Express - mongo
-    Bcrypt- 3rd part npm encrypting package used to store the password in encrypted format
-    Express-session - 3rd party npm package used to specify the details of the active session for the user.
-    Cors - For cross origin site access
-    Passport-jwt -3rd party npm package to implement protection for routing. jwtFromRequest used to get the  authentication header information which is cross checked to verify the validity of the user login.Once valid the protected route is accessed by the user else access is denied.
+    1)Express - mongo
+    2)Bcrypt- 3rd part npm encrypting package used to store the password in encrypted format
+    3)Express-session - 3rd party npm package used to specify the details of the active session for the user.
+    4)Cors - For cross origin site access
+    5)Passport-jwt -3rd party npm package to implement protection for routing. jwtFromRequest used to get the  authentication header information which is cross checked to verify the validity of the user login.Once valid the protected route is accessed by the user else access is denied.
 
     
 
