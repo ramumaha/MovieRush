@@ -19,8 +19,9 @@
 **Review**
 The registered users have the option of offering reviews to the movies.The review is a form which asks details regarding review title,descriptions and rating.Once submitted the page automatically refreshes and the newly added review is displayed on the screen.
 
-**Both registered and unregistered users
-    Search**
+**Both registered and unregistered users**
+
+    **Search**
         There is a search bar present in the navigation bar,The users can search for the desired movie and the top 10 results that match the search are displayed.
    ** Movie details **
         Once the desired movie is chosen,the user is redirected to the custom page of the movie.Details such as movie name,date,country,director etc., are displayed.The drop down near view all the information details about the plot of the movie.The rating and the cast is also displayed in the right.
