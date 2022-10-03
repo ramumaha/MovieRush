@@ -13,14 +13,14 @@
 **Long description:**
 
 **Registered users:**
-    Once registered,the website automatically loads to the home page.
-**Profile**
-        1.The user can view the profile where the username and the email id are visible.
-        1.The user has the option of signing out.If the user closes the window without signing out,the site remembers the details for 2 weeks.Any time after that,the user has to login again.
- **Watchlist**
+    Once registered,the website automatically loads to the home page.<br />
+**Profile**<br />
+       -The user can view the profile where the username and the email id are visible.<br />
+       -The user has the option of signing out.If the user closes the window without signing out,the site remembers the details for 2 weeks.Any time after that,the user has to login again.<br />
+ **Watchlist**<br />
         Only the registered user can access the watchlist option.The watchlist stores all the bookmarked movies.There is option of removing the movies once added.
-        The registered user can view the contents of the watchlist in the home page too.
-**Review**
+        The registered user can view the contents of the watchlist in the home page too.<br />
+**Review**<br />
 The registered users have the option of offering reviews to the movies.The review is a form which asks details regarding review title,descriptions and rating.Once submitted the page automatically refreshes and the newly added review is displayed on the screen.
 
 **Both registered and unregistered users**
@@ -29,14 +29,14 @@ The registered users have the option of offering reviews to the movies.The revie
   There is a search bar present in the navigation bar,the users can search for the desired movie and the top 10 results that match the search are displayed.       
    **Movie details**
         Once the desired movie is chosen,the user is redirected to the custom page of the movie.Details such as movie name,date,country,director etc., are displayed.The drop down near view all the information details about the plot of the movie.The rating and the cast is also displayed in the right.
-    The reviews given by all the users for the specific movie are loaded by the side.
+    The reviews given by all the users for the specific movie are loaded by the side.<br />
 
-**Back-end**
-    1)Express - mongo
-    2)Bcrypt- 3rd part npm encrypting package used to store the password in encrypted format
-    3)Express-session - 3rd party npm package used to specify the details of the active session for the user.
-    4)Cors - For cross origin site access
-    5)Passport-jwt -3rd party npm package to implement protection for routing. jwtFromRequest used to get the  authentication header information which is cross checked to verify the validity of the user login.Once valid the protected route is accessed by the user else access is denied.
+**Back-end**<br />
+    1.Express - mongo <br />
+    2.Bcrypt- 3rd part npm encrypting package used to store the password in encrypted format<br />
+    3.Express-session - 3rd party npm package used to specify the details of the active session for the user.<br />
+    4.Cors - For cross origin site access<br />
+    5.Passport-jwt -3rd party npm package to implement protection for routing. jwtFromRequest used to get the  authentication header information which is cross checked to verify the validity of the user login.Once valid the protected route is accessed by the user else access is denied.<br />
 
     
 
