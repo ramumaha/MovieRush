@@ -5,6 +5,9 @@
   The users information are safely stored ,the password being encypted before storage.
   The search feature can let ypu tp  search the movies from any part of the website.
         The top 10 searches that matches the keyword is displayed.
+        
+**Technologies and Tools used**
+  ![Angular2](https://img.shields.io/badge/angular-%23E23237.svg?style=for-the-badge&logo=angular&logoColor=white)![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) !
    
 **Long description:**
 
