@@ -16,7 +16,7 @@
     Once registered,the website automatically loads to the home page.
 **Profile**
         1.The user can view the profile where the username and the email id are visible.
-        2.The user has the option of signing out.If the user closes the window without signing out,the site remembers the details for 2 weeks.Any time after that,the user has to login again.
+        1.The user has the option of signing out.If the user closes the window without signing out,the site remembers the details for 2 weeks.Any time after that,the user has to login again.
  **Watchlist**
         Only the registered user can access the watchlist option.The watchlist stores all the bookmarked movies.There is option of removing the movies once added.
         The registered user can view the contents of the watchlist in the home page too.
