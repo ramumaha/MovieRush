@@ -3,8 +3,8 @@
   The user need not sign in just to view the movies.
   To access the other perks like adding movies to watchlist and writing a review the user needs to be signed in.
   The users information are safely stored ,the password being encypted before storage.
-  The search feature can let ypu tp  search the movies from any part of the website.
-        The top 10 searches that matches the keyword is displayed.
+  The search feature can let you to search the movies from any part of the website.
+      **The top 10 searches that matches the keyword is displayed.**
         
 **Technologies and Tools used**
 
@@ -15,7 +15,7 @@
 **Registered users:**
     Once registered,the website automatically loads to the home page.
 **Profile**
-        1.The user can view the profile where the user name and the email id are visible.
+        1.The user can view the profile where the username and the email id are visible.
         2.The user has the option of signing out.If the user closes the window without signing out,the site remembers the details for 2 weeks.Any time after that,the user has to login again.
  **Watchlist**
         Only the registered user can access the watchlist option.The watchlist stores all the bookmarked movies.There is option of removing the movies once added.
@@ -26,7 +26,7 @@ The registered users have the option of offering reviews to the movies.The revie
 **Both registered and unregistered users**
 
 **Seach**
-  There is a search bar present in the navigation bar,The users can search for the desired movie and the top 10 results that match the search are displayed.       
+  There is a search bar present in the navigation bar,the users can search for the desired movie and the top 10 results that match the search are displayed.       
    **Movie details**
         Once the desired movie is chosen,the user is redirected to the custom page of the movie.Details such as movie name,date,country,director etc., are displayed.The drop down near view all the information details about the plot of the movie.The rating and the cast is also displayed in the right.
     The reviews given by all the users for the specific movie are loaded by the side.
